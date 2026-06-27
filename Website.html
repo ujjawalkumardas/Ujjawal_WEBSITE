@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ujjawal Kumar Das | Video Editor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── RESET & BASE ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #F7F7F5;
+      color: #111;
+      overflow-x: hidden;
+    }
+ 
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 560px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: linear-gradient(180deg, #1e1e1e 0%, #111111 45%, #080808 100%);
+    }
+ 
+    /* Vertical line texture overlay */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        90deg,
+        rgba(255,255,255,0.02) 0px,
+        rgba(255,255,255,0.02) 1px,
+        transparent 1px,
+        transparent 36px
+      );
+      z-index: 1;
+      pointer-events: none;
+    }
+ 
+    /* ── HERO NAV ── */
+    .hero-nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 40px;
+    }
+ 
+    .hero-nav-star {
+      font-size: 22px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1;
+      user-select: none;
+      cursor: default;
+    }
+ 
+    .hero-nav-center {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      background: rgba(255,255,255,0.07);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 999px;
+      padding: 5px 6px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+ 
+    .hero-nav-link {
+      padding: 7px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+ 
+    .hero-nav-link:hover {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+    }
+ 
+    .hero-nav-ig {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.13);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+ 
+    .hero-nav-ig:hover {
+      background: rgba(255,255,255,0.16);
+      border-color: rgba(255,255,255,0.28);
+      color: #fff;
+    }
+ 
+    .hero-nav-ig svg { width: 16px; height: 16px; }
+ 
+    /* ── HERO AVATAR ── */
+    .hero-avatar {
+      position: relative;
+      z-index: 2;
+      width: clamp(240px, 36vw, 460px);
+      height: 100vh;
+      min-height: 560px;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      opacity: 0.75;
+    }
+ 
+    /* ── HERO CONTENT (bottom) ── */
+    .hero-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 5;
+      text-align: center;
+      padding: 0 48px 64px;
+      background: linear-gradient(to top, rgba(8,8,8,0.9) 0%, rgba(8,8,8,0.5) 55%, transparent 100%);
+    }
+ 
+    .hero-eyebrow {
+      font-size: 11.5px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.42);
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+ 
+    .hero-eyebrow::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #FF1D00;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+ 
+    .hero-heading {
+      font-size: clamp(38px, 5.5vw, 72px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.08;
+      margin-bottom: 14px;
+      letter-spacing: -1.5px;
+    }
+ 
+    .hero-heading em {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-weight: 400;
+      letter-spacing: -0.5px;
+    }
+ 
+    .hero-sub {
+      font-size: 14px;
+      color: rgba(255,255,255,0.48);
+      line-height: 1.75;
+      max-width: 440px;
+      margin: 0 auto 30px;
+    }
+ 
+    .hero-cta {
+      display: inline-block;
+      padding: 13px 30px;
+      border-radius: 999px;
+      background: #fff;
+      color: #111;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+ 
+    .hero-cta:hover {
+      background: #f0f0f0;
+      transform: translateY(-1px);
+    }
+ 
+    /* ── TOOLS STRIP ── */
+    .tools-strip {
+      background: #111;
+      padding: 18px 48px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .tools-strip::-webkit-scrollbar { display: none; }
+    .tools-strip-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: #666;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .tool-pill {
+      padding: 6px 16px;
+      border-radius: 999px;
+      border: 1px solid #333;
+      font-size: 12px;
+      font-weight: 500;
+      color: #ccc;
+      white-space: nowrap;
+      background: transparent;
+    }
+    .tool-pill.red { border-color: #FF1D00; color: #FF1D00; }
+ 
+    /* ── SHARED LAYOUT ── */
+    .section { max-width: 1100px; margin: 0 auto; padding: 80px 48px; }
+    .divider { max-width: 1100px; margin: 0 auto; padding: 0 48px; border: none; border-top: 1px solid #ddd; }
+    .red-dot { width: 8px; height: 8px; border-radius: 50%; background: #FF1D00; flex-shrink: 0; }
+    .dot-tag { display: flex; align-items: center; gap: 8px; margin-bottom: 18px; }
+    .dot-tag-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: #888; text-transform: uppercase; }
+    .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; }
+    .see-all-row { display: flex; align-items: center; gap: 10px; }
+    .see-all-btn {
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: #111;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .see-all-btn:hover { background: #333; }
+    .arrow-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #FF1D00;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .arrow-circle:hover { background: #cc1700; }
+    .arrow-circle svg { width: 15px; height: 15px; }
+ 
+    /* ── ABOUT ── */
+    .about-grid { display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: start; }
+    .about-labels { display: flex; flex-direction: column; gap: 24px; }
+    .label-group-title { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: #888; text-transform: uppercase; margin-bottom: 5px; }
+    .label-group-value { font-size: 13px; color: #555; line-height: 1.7; }
+    .about-statement { font-size: clamp(20px, 2.4vw, 30px); font-weight: 500; line-height: 1.38; color: #111; margin-bottom: 40px; }
+    .stat-row { display: flex; align-items: baseline; gap: 16px; }
+    .stat-number { font-size: clamp(48px, 6vw, 68px); font-weight: 900; color: #111; line-height: 1; }
+    .stat-label { font-size: 13px; color: #666; max-width: 200px; line-height: 1.55; }
+ 
+    /* ── SHORT FORM (9:16 vertical grid) ── */
+    .video-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .video-wrap {
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 9/16;
+      background: #1a1a1a;
+      position: relative;
+    }
+    .video-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
+ 
+    /* ── LONG FORM (16:9) ── */
+    .longform-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .longform-wrap { border-radius: 12px; overflow: hidden; aspect-ratio: 16/9; background: #1a1a1a; }
+    .longform-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
+ 
+    /* ── THUMBNAILS ── */
+    .thumb-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .thumb-item {
+      border-radius: 10px;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      background: #ddd;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .thumb-item:hover { transform: scale(1.02); }
+    .thumb-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+ 
+    /* ── PODCAST ── */
+    .podcast-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .podcast-wrap { border-radius: 12px; overflow: hidden; aspect-ratio: 16/9; background: #1a1a1a; }
+    .podcast-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
+ 
+    /* ── CONTACT ── */
+    .contact-box {
+      background: #111;
+      border-radius: 20px;
+      padding: 64px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .contact-headline { font-size: clamp(28px, 4vw, 48px); font-weight: 900; color: #fff; line-height: 1.15; }
+    .contact-headline span { color: #FF1D00; }
+    .contact-sub { font-size: 14px; color: #888; margin-top: 12px; line-height: 1.6; }
+    .contact-actions { display: flex; flex-direction: column; gap: 12px; flex-shrink: 0; }
+    .cta-btn {
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      white-space: nowrap;
+      display: block;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .cta-primary { background: #FF1D00; color: #fff; border: 2px solid #FF1D00; }
+    .cta-primary:hover { background: #cc1700; border-color: #cc1700; }
+    .cta-ghost { background: transparent; color: #fff; border: 1.5px solid #444; }
+    .cta-ghost:hover { border-color: #fff; }
+ 
+    /* ── SCROLL TO TOP ── */
+    #scrollTop {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #FF1D00;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s, background 0.2s;
+      z-index: 999;
+    }
+    #scrollTop.visible { opacity: 1; pointer-events: all; }
+    #scrollTop:hover { background: #cc1700; }
+    #scrollTop svg { width: 18px; height: 18px; }
+ 
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 36px 48px;
+      font-size: 12px;
+      color: #aaa;
+      border-top: 1px solid #e5e5e5;
+    }
+    footer a { color: #FF1D00; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+ 
+    /* ── FADE-IN ON SCROLL ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+ 
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .video-grid { grid-template-columns: repeat(2, 1fr); }
+      .longform-grid { grid-template-columns: repeat(2, 1fr); }
+      .thumb-grid { grid-template-columns: repeat(2, 1fr); }
+      .podcast-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      .contact-box { flex-direction: column; padding: 40px 28px; }
+      .section { padding: 56px 28px; }
+      .section-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .tools-strip { padding: 16px 24px; gap: 16px; }
+      .hero-nav { padding: 20px 24px; }
+      .hero-nav-link { padding: 7px 12px; font-size: 12px; }
+    }
+    @media (max-width: 560px) {
+      .hero-nav-center { display: none; }
+      .hero-content { padding: 0 24px 48px; }
+      .hero-heading { letter-spacing: -0.5px; }
+      .video-grid { grid-template-columns: repeat(2, 1fr); }
+      .thumb-grid { grid-template-columns: repeat(2, 1fr); }
+      .section { padding: 48px 16px; }
+    }
+  </style>
+</head>
+<body>
+ 
+  <!-- ── HERO ── -->
+  <section class="hero">
+ 
+    <!-- Nav -->
+    <nav class="hero-nav">
+      <span class="hero-nav-star">✦</span>
+      <div class="hero-nav-center">
+        <a href="#" class="hero-nav-link">Home</a>
+        <a href="#work" class="hero-nav-link">Portfolio</a>
+        <a href="#contact" class="hero-nav-link">Contact</a>
+      </div>
+      <a href="https://www.instagram.com/kumarrujjawal/reels/" target="_blank" rel="noopener" class="hero-nav-ig" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+    </nav>
+ 
+    <!-- Silhouette -->
+    <img
+      class="hero-avatar"
+      src="avatar.png"
+      alt="Ujjawal Kumar silhouette"
+      onerror="this.style.opacity='0'"
+    />
+ 
+    <!-- Hero Content -->
+    <div class="hero-content">
+      <div class="hero-eyebrow">Video Editor &nbsp;·&nbsp; Since 2021</div>
+      <h1 class="hero-heading">Editing with <em>Intention</em></h1>
+      <p class="hero-sub">Where design meets storytelling. Every frame has a purpose, not just an effect.</p>
+      <a href="https://www.instagram.com/kumarrujjawal/reels/" target="_blank" rel="noopener" class="hero-cta">Let's connect</a>
+    </div>
+ 
+  </section>
+ 
+  <!-- ── TOOLS STRIP ── -->
+  <div class="tools-strip">
+    <span class="tools-strip-label">Tools</span>
+    <span class="tool-pill red">Adobe Premiere Pro</span>
+    <span class="tool-pill">After Effects</span>
+    <span class="tool-pill">Photoshop</span>
+    <span class="tool-pill red">Midjourney</span>
+    <span class="tool-pill">ChatGPT</span>
+    <span class="tool-pill">AI-Integrated Workflow</span>
+  </div>
+ 
+  <!-- ── ABOUT ── -->
+  <section class="section fade-in">
+    <div class="about-grid">
+      <div class="about-labels">
+        <div>
+          <div class="label-group-title">Specialises in</div>
+          <div class="label-group-value">Short Form · Long Form<br>Podcasts · Thumbnails</div>
+        </div>
+        <div>
+          <div class="label-group-title">Since</div>
+          <div class="label-group-value">2021 · Freelance</div>
+        </div>
+        <div>
+          <div class="label-group-title">Available for</div>
+          <div class="label-group-value">YouTube · Reels<br>Podcasts · Brand Content</div>
+        </div>
+      </div>
+      <div>
+        <div class="dot-tag">
+          <div class="red-dot"></div>
+          <span class="dot-tag-label">About</span>
+        </div>
+        <p class="about-statement">
+          From scroll-stopping reels and cinematic long-form edits to polished podcast cuts —
+          I craft digital content that makes brands and creators stand out, powered by AI tools
+          and sharp editing instincts.
+        </p>
+        <div class="stat-row">
+          <span class="stat-number">4+</span>
+          <span class="stat-label">Years of freelance video editing experience since 2021.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <hr class="divider" />
+ 
+  <!-- ── SHORT FORM ── -->
+  <section class="section fade-in" id="work">
+    <div class="section-header">
+      <div class="dot-tag" style="margin-bottom:0">
+        <div class="red-dot"></div>
+        <span class="dot-tag-label">Short Form Content</span>
+      </div>
+    </div>
+    <div class="video-grid">
+      <div class="video-wrap">
+        <iframe src="https://www.youtube-nocookie.com/embed/_Qd_7pSAE8I?mute=1&rel=0&loop=1&controls=1&playlist=_Qd_7pSAE8I" allowfullscreen loading="lazy" title="Short form clip 1"></iframe>
+      </div>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube-nocookie.com/embed/FJZZaDDWaKw?mute=1&rel=0&loop=1&controls=1&playlist=FJZZaDDWaKw" allowfullscreen loading="lazy" title="Short form clip 2"></iframe>
+      </div>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube-nocookie.com/embed/ueRGc-IMkSw?mute=1&rel=0&loop=1&controls=1&playlist=ueRGc-IMkSw" allowfullscreen loading="lazy" title="Short form clip 3"></iframe>
+      </div>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube-nocookie.com/embed/6MKNqqhZaUQ?mute=1&rel=0&loop=1&controls=1&playlist=6MKNqqhZaUQ" allowfullscreen loading="lazy" title="Short form clip 4"></iframe>
+      </div>
+    </div>
+    <div class="see-all-row" style="justify-content:flex-end; margin-top:20px;">
+      <a href="https://ujjawalkumar.carrd.co" target="_blank" class="see-all-btn">See all clips</a>
+      <a href="https://ujjawalkumar.carrd.co" target="_blank" class="arrow-circle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M13 6l6 6-6 6"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+ 
+  <hr class="divider" />
+ 
+  <!-- ── LONG FORM ── -->
+  <section class="section fade-in">
+    <div class="section-header">
+      <div class="dot-tag" style="margin-bottom:0">
+        <div class="red-dot"></div>
+        <span class="dot-tag-label">Long Form</span>
+      </div>
+    </div>
+    <div class="longform-grid">
+      <div class="longform-wrap">
+        <iframe src="https://www.youtube-nocookie.com/embed/27oaoQ2bDdw?mute=1&rel=0&loop=1&controls=1&playlist=27oaoQ2bDdw" allowfullscreen loading="lazy" title="Long form 1"></iframe>
+      </div>
+      <div class="longform-wrap">
+        <iframe src="https://www.youtube-nocookie.com/embed/rqCvXZbwkKs?mute=1&rel=0&loop=1&controls=1&playlist=rqCvXZbwkKs" allowfullscreen loading="lazy" title="Long form 2"></iframe>
+      </div>
+      <div class="longform-wrap">
+        <iframe src="https://www.youtube-nocookie.com/embed/KNfpAAjs54w?mute=1&rel=0&loop=1&controls=1&playlist=KNfpAAjs54w" allowfullscreen loading="lazy" title="Long form 3"></iframe>
+      </div>
+      <div class="longform-wrap">
+        <iframe src="https://www.youtube-nocookie.com/embed/ln1jZldrJG8?mute=1&rel=0&loop=1&controls=1&playlist=ln1jZldrJG8" allowfullscreen loading="lazy" title="Long form 4"></iframe>
+      </div>
+      <div class="longform-wrap">
+        <iframe src="https://www.youtube-nocookie.com/embed/yYVt7CDKWpg?mute=1&rel=0&loop=1&controls=1&playlist=yYVt7CDKWpg" allowfullscreen loading="lazy" title="Long form 5"></iframe>
+      </div>
+      <div class="longform-wrap">
+        <iframe src="https://www.youtube-nocookie.com/embed/ddz3ixyPwNc?mute=1&rel=0&loop=1&controls=1&playlist=ddz3ixyPwNc" allowfullscreen loading="lazy" title="Long form 6"></iframe>
+      </div>
+    </div>
+  </section>
+ 
+  <hr class="divider" />
+ 
+  <!-- ── THUMBNAILS ── -->
+  <section class="section fade-in">
+    <div class="section-header">
+      <div class="dot-tag" style="margin-bottom:0">
+        <div class="red-dot"></div>
+        <span class="dot-tag-label">Thumbnails</span>
+      </div>
+    </div>
+    <div class="thumb-grid">
+      <div class="thumb-item"><img src="https://ujjawalkumar.carrd.co/assets/images/gallery01/22353f30.jpg?v=d695ffa3" alt="Thumbnail design 1" loading="lazy" /></div>
+      <div class="thumb-item"><img src="https://ujjawalkumar.carrd.co/assets/images/gallery01/f0953f0c.jpg?v=d695ffa3" alt="Thumbnail design 2" loading="lazy" /></div>
+      <div class="thumb-item"><img src="https://ujjawalkumar.carrd.co/assets/images/gallery01/5ca1f14f.jpg?v=d695ffa3" alt="Thumbnail design 3" loading="lazy" /></div>
+      <div class="thumb-item"><img src="https://ujjawalkumar.carrd.co/assets/images/gallery01/b569d175.jpg?v=d695ffa3" alt="Thumbnail design 4" loading="lazy" /></div>
+      <div class="thumb-item"><img src="https://ujjawalkumar.carrd.co/assets/images/gallery01/cba8304a.jpg?v=d695ffa3" alt="Thumbnail design 5" loading="lazy" /></div>
+      <div class="thumb-item"><img src="https://ujjawalkumar.carrd.co/assets/images/gallery01/f408a381.jpg?v=d695ffa3" alt="Thumbnail design 6" loading="lazy" /></div>
+      <div class="thumb-item"><img src="https://ujjawalkumar.carrd.co/assets/images/gallery01/f75e3231.jpg?v=d695ffa3" alt="Thumbnail design 7" loading="lazy" /></div>
+      <div class="thumb-item"><img src="https://ujjawalkumar.carrd.co/assets/images/gallery01/eee36539.jpg?v=d695ffa3" alt="Thumbnail design 8" loading="lazy" /></div>
+    </div>
+  </section>
+ 
+  <hr class="divider" />
+ 
+  <!-- ── PODCAST ── -->
+  <section class="section fade-in">
+    <div class="section-header">
+      <div class="dot-tag" style="margin-bottom:0">
+        <div class="red-dot"></div>
+        <span class="dot-tag-label">Podcast</span>
+      </div>
+    </div>
+    <div class="podcast-grid">
+      <div class="podcast-wrap">
+        <iframe src="https://www.youtube-nocookie.com/embed/_hUiaoa-kiE?mute=1&rel=0&loop=1&controls=1&playlist=_hUiaoa-kiE" allowfullscreen loading="lazy" title="Podcast 1"></iframe>
+      </div>
+      <div class="podcast-wrap">
+        <iframe src="https://www.youtube-nocookie.com/embed/m4N0XWy3Wwc?mute=1&rel=0&loop=1&controls=1&playlist=m4N0XWy3Wwc" allowfullscreen loading="lazy" title="Podcast 2"></iframe>
+      </div>
+      <div class="podcast-wrap">
+        <iframe src="https://www.youtube-nocookie.com/embed/mWpZe8aEssk?mute=1&rel=0&loop=1&controls=1&playlist=mWpZe8aEssk" allowfullscreen loading="lazy" title="Podcast 3"></iframe>
+      </div>
+      <div class="podcast-wrap">
+        <iframe src="https://www.youtube-nocookie.com/embed/uG7mBOw6Yhs?mute=1&rel=0&loop=1&controls=1&playlist=uG7mBOw6Yhs" allowfullscreen loading="lazy" title="Podcast 4"></iframe>
+      </div>
+    </div>
+  </section>
+ 
+  <hr class="divider" />
+ 
+  <!-- ── CONTACT ── -->
+  <section class="section fade-in" id="contact">
+    <div class="contact-box">
+      <div>
+        <div class="contact-headline">
+          Let's make<br>
+          <span>something great</span><br>
+          together.
+        </div>
+        <div class="contact-sub">
+          Open for freelance projects — short form, long form,<br>
+          podcast edits, thumbnails &amp; brand content.
+        </div>
+      </div>
+      <div class="contact-actions">
+        <a href="mailto:ujjawalkumardas@gmail.com" class="cta-btn cta-primary">Email Ujjawal</a>
+        <a href="https://www.linkedin.com/in/ujjawalkumarvideoeditor/" target="_blank" rel="noopener" class="cta-btn cta-ghost">LinkedIn Profile</a>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- ── FOOTER ── -->
+  <footer>
+    © 2025 Ujjawal Kumar Das &nbsp;·&nbsp; Freelance Video Editor
+    &nbsp;·&nbsp;
+    <a href="mailto:ujjawalkumardas@gmail.com">ujjawalkumardas@gmail.com</a>
+    &nbsp;·&nbsp;
+    <a href="https://www.linkedin.com/in/ujjawalkumarvideoeditor/" target="_blank" rel="noopener">LinkedIn</a>
+  </footer>
+ 
+  <!-- ── SCROLL TO TOP BUTTON ── -->
+  <button id="scrollTop" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+ 
+  <!-- ── JAVASCRIPT ── -->
+  <script>
+    // ── Scroll-to-top button ──
+    const scrollTopBtn = document.getElementById('scrollTop');
+ 
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    });
+ 
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+ 
+    // ── Fade-in on scroll (IntersectionObserver) ──
+    const faders = document.querySelectorAll('.fade-in');
+ 
+    const observerOptions = {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    };
+ 
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+ 
+    faders.forEach(el => observer.observe(el));
+ 
+    // ── Staggered animation for grid children ──
+    document.querySelectorAll('.thumb-grid .thumb-item, .video-grid .video-wrap, .longform-grid .longform-wrap').forEach((el, i) => {
+      el.style.transitionDelay = `${i * 60}ms`;
+      el.classList.add('fade-in');
+      observer.observe(el);
+    });
+ 
+    // ── Smooth active nav highlight on hero buttons ──
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+ 
+</body>
+</html>
