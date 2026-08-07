@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ujjawal Kumar Das | Content Strategist &amp; Social Media Growth</title>
+<meta name="description" content="Content strategist and social media growth specialist. I build content systems, grow channels and run communities — CapMint, The Clips Agency, YaaS.Media, and my own 14.5K creator page." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  :root{
+    --bg:#FAFAFA;
+    --surface:#ffffff;
+    --card:#f2f0ea;
+    --text:#18181B;
+    --ink:#18181B;
+    --muted:#63636b;
+    --line:#e2e0db;
+    --accent:#CC0D1C;
+    --c-cream:#F1E8DE;
+    --c-cream-ink:#1a1a17;
+  }
+  :root[data-theme="dark"]{
+    --bg:#0E0E10;
+    --surface:#1a1a1d;
+    --card:#1c1c1f;
+    --text:#F2F1EE;
+    --muted:#9c9c99;
+    --line:rgba(255,255,255,.12);
+  }
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.5;transition:background .3s ease,color .3s ease;}
+  a{color:inherit;}
+  .serif{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;}
+  img{max-width:100%;display:block;}
+
+  /* ── NAV ── */
+  .nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);width:calc(100% - 40px);max-width:1180px;z-index:200;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 12px 10px 26px;background:#141414;border-radius:999px;box-shadow:0 14px 34px -14px rgba(0,0,0,.35);}
+  .nav-logo{font-weight:800;font-size:16px;line-height:1;letter-spacing:-.3px;text-decoration:none;color:#fff;flex-shrink:0;}
+  .nav-links{display:flex;align-items:center;gap:26px;}
+  .nav-links a{font-size:13.5px;font-weight:500;text-decoration:none;color:rgba(255,255,255,.65);transition:color .2s;}
+  .nav-links a:hover{color:#fff;}
+  .nav-right{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+  .theme-toggle{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;transition:background .2s;flex-shrink:0;}
+  .theme-toggle:hover{background:rgba(255,255,255,.16);}
+  .theme-toggle svg{width:17px;height:17px;display:block;}
+
+  /* ── HERO ── */
+  .hero{max-width:1180px;margin:0 auto;padding:130px 48px 40px;}
+  .hero-eyebrow{font-family:'Instrument Serif',serif;font-style:italic;font-size:19px;font-weight:400;color:var(--muted);margin-bottom:16px;}
+  .hero-heading{font-size:clamp(34px,5.4vw,58px);font-weight:800;letter-spacing:-1.5px;line-height:1.06;margin-bottom:18px;}
+  .hero-sub{font-size:15.5px;color:var(--muted);line-height:1.75;max-width:600px;margin-bottom:32px;}
+  .hero-ctas{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:56px;}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:999px;font-size:14px;font-weight:600;font-family:'Inter',sans-serif;text-decoration:none;transition:background .2s,transform .15s,border-color .2s,color .2s,opacity .2s;cursor:pointer;border:1.5px solid transparent;}
+  .btn-primary{background:var(--text);color:var(--bg);}
+  .btn-primary:hover{opacity:.82;transform:translateY(-1px);}
+  .btn-ghost{background:transparent;color:var(--text);border-color:var(--line);}
+  .btn-ghost:hover{border-color:var(--text);}
+  .btn-accent{background:var(--accent);color:#fff;}
+  .btn-accent:hover{background:#A30A16;}
+
+  /* ── FEATURE GRID ── */
+  .feature-grid{max-width:1180px;margin:0 auto;padding:0 48px 70px;}
+  .feature{display:flex;align-items:center;gap:32px;padding:32px 0;border-top:1px solid var(--line);}
+  .feature:last-child{border-bottom:1px solid var(--line);}
+  .feature-num{font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--muted);width:26px;flex-shrink:0;}
+  .feature-icon{width:40px;height:40px;flex-shrink:0;color:var(--text);}
+  .feature-icon svg{width:100%;height:100%;display:block;}
+  .feature-title{font-size:16.5px;font-weight:700;letter-spacing:-.2px;width:250px;flex-shrink:0;}
+  .feature-desc{flex:1;font-size:13.5px;color:var(--muted);line-height:1.65;}
+
+  /* ── SECTION SHARED ── */
+  .section{max-width:1180px;margin:0 auto;padding:90px 48px;}
+  .section-eyebrow{display:flex;align-items:center;gap:10px;font-family:'Instrument Serif',serif;font-style:italic;font-size:19px;font-weight:400;color:var(--muted);margin-bottom:18px;}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex-shrink:0;display:inline-block;}
+  .section-title{font-size:clamp(30px,4vw,46px);font-weight:800;letter-spacing:-1.4px;line-height:1.08;margin-bottom:16px;}
+  .section-sub{font-size:15px;color:var(--muted);max-width:560px;line-height:1.7;}
+
+  /* ── CASE STUDIES (click-to-expand pointer list) ── */
+  .case-intro{padding-bottom:40px;}
+  .case-list{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--surface);}
+  .case-row{border-bottom:1px solid var(--line);}
+  .case-row:last-child{border-bottom:none;}
+  .case-row-head{width:100%;display:flex;align-items:center;gap:28px;padding:28px 32px;background:var(--surface);border:none;cursor:pointer;text-align:left;font-family:inherit;color:inherit;transition:background .32s ease,color .32s ease;}
+  .case-row-num{font-size:12px;font-weight:600;color:var(--muted);width:22px;flex-shrink:0;transition:color .32s ease;}
+  .case-row-title{font-size:19px;font-weight:700;letter-spacing:-.3px;width:230px;flex-shrink:0;}
+  .case-row-desc{flex:1;font-size:13.5px;line-height:1.6;opacity:.72;}
+  .case-row-arrow{width:42px;height:42px;border-radius:50%;background:var(--text);color:var(--bg);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .32s ease,background .32s ease,color .32s ease;}
+  .case-row-arrow svg{width:16px;height:16px;transition:transform .32s ease;}
+  .case-row.open .case-row-arrow svg{transform:rotate(135deg);}
+  .case-row-body{max-height:0;overflow:hidden;transition:max-height .45s ease;}
+  .case-row.open .case-row-body{max-height:900px;}
+  .case-row-inner{padding:4px 32px 44px;}
+  .case-eyebrow{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.08em;margin-bottom:20px;opacity:.85;}
+  .case-rule{border:none;border-top:1px solid currentColor;opacity:.22;margin:20px 0;}
+  .case-headline{font-size:clamp(26px,3.6vw,40px);font-weight:800;letter-spacing:-1.2px;line-height:1.08;}
+  .case-bottom{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:start;}
+  .case-desc{font-size:14.5px;line-height:1.8;opacity:.92;max-width:480px;}
+  .case-stats{display:grid;grid-template-columns:1fr 1fr;gap:22px 30px;}
+  .case-stats strong{display:block;font-size:22px;font-weight:700;margin-bottom:4px;}
+  .case-stats span{font-size:12.5px;opacity:.75;line-height:1.5;display:block;}
+  .case-row-head:hover,.case-row.open .case-row-head{background:var(--text);color:var(--bg);}
+  .case-row-head:hover .case-row-num,.case-row.open .case-row-num{color:var(--bg);opacity:.55;}
+  .case-row-head:hover .case-row-arrow,.case-row.open .case-row-arrow{background:var(--bg);color:var(--text);}
+  .case-row-body{background:var(--text);color:var(--bg);}
+  .case-row-body .case-desc,.case-row-body .case-stats span{opacity:.65;}
+  .case-row-body .case-rule{opacity:.18;}
+  @media (max-width:700px){
+    .case-row-head{padding:22px 20px;gap:16px;}
+    .case-row-title{width:auto;flex:1;font-size:16px;}
+    .case-row-desc{display:none;}
+    .case-row-inner{padding:4px 20px 36px;}
+    .case-bottom{grid-template-columns:1fr;gap:24px;}
+  }
+
+  /* ── PORTFOLIO ── */
+  .video-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:14px;}
+  .video-wrap{border-radius:10px;overflow:hidden;aspect-ratio:9/16;background:#1a1a1a;border:1px solid var(--line);}
+  .video-wrap iframe{width:100%;height:100%;border:none;display:block;}
+  .longform-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .longform-wrap{border-radius:10px;overflow:hidden;aspect-ratio:16/9;background:#1a1a1a;border:1px solid var(--line);}
+  .longform-wrap iframe{width:100%;height:100%;border:none;display:block;}
+  .portfolio-cta{margin-top:32px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding:30px 32px;background:var(--ink);border-radius:16px;}
+  .portfolio-cta p{color:#d4d4d0;font-size:14px;flex:1;min-width:220px;line-height:1.65;}
+  .portfolio-cta strong{color:#fff;}
+
+  /* ── EXPERIENCE (simple timeline) ── */
+  .timeline{display:flex;flex-direction:column;}
+  .t-item{display:grid;grid-template-columns:110px 20px 1fr;gap:0 24px;padding-bottom:44px;position:relative;}
+  .t-item:not(:last-child)::before{content:'';position:absolute;left:119px;top:22px;bottom:-2px;width:1px;background:var(--line);}
+  .t-date{font-size:12.5px;font-weight:500;color:var(--muted);padding-top:3px;}
+  .t-marker{width:9px;height:9px;margin-top:6px;border:1.5px solid var(--text);}
+  .t-item.current .t-marker{background:var(--accent);border-color:var(--accent);}
+  .t-role{font-size:17px;font-weight:700;letter-spacing:-.2px;margin-bottom:3px;}
+  .t-org{font-size:13.5px;font-weight:500;color:var(--muted);margin-bottom:10px;}
+  .t-desc{font-size:13.5px;color:var(--muted);line-height:1.7;max-width:560px;}
+
+  /* ── ABOUT ── */
+  .about-wrap{max-width:780px;}
+  .about-statement{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(22px,2.7vw,30px);font-weight:400;line-height:1.4;margin-bottom:26px;}
+  .about-para{font-size:14.5px;color:var(--muted);line-height:1.85;margin-bottom:16px;}
+  .about-readmore{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:var(--text);text-decoration:none;margin-top:8px;border-bottom:1.5px solid var(--accent);padding-bottom:2px;}
+  .about-stats{display:flex;gap:40px;margin-top:40px;flex-wrap:wrap;}
+  .about-stat strong{display:block;font-size:clamp(32px,4vw,44px);font-weight:800;}
+  .about-stat span{font-size:12.5px;color:var(--muted);max-width:170px;display:block;line-height:1.5;margin-top:4px;}
+
+  /* ── NOW BUILDING ── */
+  .build-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  .build-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:34px 32px;}
+  .build-tag{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--accent);text-transform:uppercase;margin-bottom:14px;}
+  .build-name{font-size:24px;font-weight:700;letter-spacing:-.6px;margin-bottom:12px;}
+  .build-desc{font-size:14px;color:var(--text);opacity:.85;line-height:1.7;margin-bottom:10px;}
+  .build-sub{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:20px;}
+  .build-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;}
+  .build-pill{font-size:11.5px;font-weight:500;padding:6px 12px;border-radius:999px;background:var(--bg);border:1px solid var(--line);color:var(--muted);}
+
+  /* ── TESTIMONIALS ── */
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .testi-card{border-radius:16px;padding:26px 24px;display:flex;flex-direction:column;justify-content:space-between;min-height:190px;}
+  .testi-card.accent{background:var(--accent);color:#fff;}
+  .testi-card.line{background:var(--surface);border:1px solid var(--line);}
+  .testi-card.cream{background:var(--c-cream);color:var(--c-cream-ink);}
+  .testi-quote{font-size:14.5px;line-height:1.65;font-weight:500;margin-bottom:18px;}
+  .testi-name{font-size:13px;font-weight:700;}
+  .testi-role{font-size:12px;opacity:.65;}
+  .placeholder-note{display:inline-block;margin-top:26px;font-size:12px;color:var(--muted);border:1px dashed var(--line);border-radius:999px;padding:8px 16px;}
+
+  /* ── FAQ ── */
+  .faq-list{display:flex;flex-direction:column;}
+  .faq-item{border-top:1px solid var(--line);}
+  .faq-list .faq-item:last-child{border-bottom:1px solid var(--line);}
+  .faq-q{width:100%;background:none;border:none;text-align:left;cursor:pointer;padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:15.5px;font-weight:700;font-family:'Inter',sans-serif;color:var(--text);}
+  .faq-q .plus{width:16px;height:16px;position:relative;flex-shrink:0;}
+  .faq-q .plus::before,.faq-q .plus::after{content:'';position:absolute;background:var(--accent);}
+  .faq-q .plus::before{left:0;top:50%;width:100%;height:1.5px;transform:translateY(-50%);}
+  .faq-q .plus::after{top:0;left:50%;width:1.5px;height:100%;transform:translateX(-50%);transition:transform .25s;}
+  .faq-item.open .faq-q .plus::after{transform:translateX(-50%) rotate(90deg);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .5s ease;}
+  .faq-item.open .faq-a{max-height:1300px;}
+  .faq-a-inner{padding-bottom:26px;max-width:640px;}
+  .faq-a-inner p{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:12px;}
+  .faq-a-inner p:last-child{margin-bottom:0;}
+  .faq-a-inner ul{margin:0 0 14px 20px;}
+  .faq-a-inner li{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:5px;}
+  .faq-a-inner li strong{color:var(--text);font-weight:600;}
+
+  /* ── FOOTER ── */
+  footer{background:var(--ink);color:#9a9a97;padding:70px 48px 30px;}
+  .footer-inner{max-width:1180px;margin:0 auto;}
+  .footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.1fr;gap:40px;padding-bottom:50px;}
+  .footer-brand-name{font-size:19px;font-weight:800;color:#fff;margin-bottom:10px;text-transform:uppercase;letter-spacing:-.2px;}
+  .footer-tagline{font-size:13px;color:#9a9a97;line-height:1.7;max-width:280px;margin-bottom:22px;}
+  .footer-social{display:flex;gap:10px;flex-wrap:wrap;}
+  .footer-social a{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:#ccc;text-decoration:none;transition:background .2s,color .2s,border-color .2s;}
+  .footer-social a:hover{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .footer-social svg{width:15px;height:15px;}
+  .footer-col-title{font-size:11px;font-weight:600;letter-spacing:.1em;color:#6f6f6c;text-transform:uppercase;margin-bottom:18px;}
+  .footer-col a{display:block;font-size:13.5px;color:#b5b5b1;text-decoration:none;margin-bottom:12px;transition:color .2s;}
+  .footer-col a:hover{color:#fff;}
+  .footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:26px;border-top:1px solid rgba(255,255,255,.08);font-size:12.5px;color:#6f6f6c;}
+  .footer-bottom a{color:#6f6f6c;text-decoration:none;}
+  .footer-bottom a:hover{color:#fff;}
+
+  /* ── FADE-IN ── */
+  .fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;}
+  .fade-in.visible{opacity:1;transform:translateY(0);}
+
+  /* ── RESPONSIVE ── */
+  @media (max-width:900px){
+    .feature{flex-wrap:wrap;gap:10px 24px;padding:26px 0;}
+    .feature-title{width:100%;}
+    .feature-desc{width:100%;flex-basis:100%;}
+    .video-grid{grid-template-columns:repeat(2,1fr);}
+    .longform-grid{grid-template-columns:repeat(2,1fr);}
+    .build-grid{grid-template-columns:1fr;}
+    .testi-grid{grid-template-columns:1fr;}
+    .case-bottom{grid-template-columns:1fr;gap:26px;}
+    .footer-top{grid-template-columns:1fr 1fr;gap:32px;}
+    .section{padding:64px 28px;}
+    .case-inner{padding:0 28px;}
+    .hero{padding:110px 28px 30px;}
+    .nav{padding:8px 8px 8px 20px;width:calc(100% - 24px);top:12px;}
+    .nav-links{display:none;}
+  }
+  @media (max-width:560px){
+    .feature-grid{padding:0 20px 48px;}
+    .feature{padding:22px 0;}
+    .video-grid{grid-template-columns:repeat(2,1fr);}
+    .longform-grid{grid-template-columns:1fr;}
+    .footer-top{grid-template-columns:1fr;}
+    .section{padding:52px 20px;}
+    .t-item{grid-template-columns:80px 16px 1fr;gap:0 16px;}
+    .t-item:not(:last-child)::before{left:89px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav" id="nav">
+  <a href="#home" class="nav-logo">Ujjawal</a>
+  <div class="nav-links">
+    <a href="#work">Work</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#experience">Experience</a>
+    <a href="#about">About</a>
+    <a href="#faq">FAQ</a>
+    <a href="mailto:ujjawalkumardas@gmail.com">Contact</a>
+  </div>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ── HERO / HOME ── -->
+<section class="hero" id="home">
+  <div class="hero-eyebrow">Content Strategist &nbsp;/&nbsp; Social Media Growth &nbsp;/&nbsp; Creator</div>
+  <h1 class="hero-heading">Hi, I'm Ujjawal.</h1>
+  <p class="hero-sub">Four-plus years turning raw footage and scattered ideas into content systems that actually grow. I've run the content pipeline for CapMint's two YouTube channels, built a 791-member editors' community from zero, and grown my own page to 14.5K — now I help brands and creators think past the single post to the system behind it.</p>
+  <div class="hero-ctas">
+    <a href="#work" class="btn btn-primary">See the work ↓</a>
+    <a href="mailto:ujjawalkumardas@gmail.com" class="btn btn-ghost">Connect with me</a>
+  </div>
+</section>
+
+<!-- ── FEATURE GRID ── -->
+<div class="feature-grid fade-in">
+  <div class="feature">
+    <span class="feature-num">001</span>
+    <div class="feature-icon">
+      <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="30" r="4"/><circle cx="20" cy="11" r="4"/><circle cx="32" cy="30" r="4"/><path d="M11.5 27 L16.7 14.5 M23.3 14.5 L28.5 27"/></svg>
+    </div>
+    <div class="feature-title">Content systems</div>
+    <div class="feature-desc">Full-funnel short-form pipelines built for retention, not runtime. 1.9M views in 28 days on CapMint Daily.</div>
+  </div>
+  <div class="feature">
+    <span class="feature-num">002</span>
+    <div class="feature-icon">
+      <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="15" cy="16" r="9"/><circle cx="25" cy="16" r="9"/><circle cx="20" cy="26" r="9"/></svg>
+    </div>
+    <div class="feature-title">Community building</div>
+    <div class="feature-desc">Grew atova.club to 791 editors from zero — no ad spend, just Instagram, tutorials and a WhatsApp group.</div>
+  </div>
+  <div class="feature">
+    <span class="feature-num">003</span>
+    <div class="feature-icon">
+      <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 30 L16 20 L22 26 L34 10"/><path d="M25 10 L34 10 L34 19"/></svg>
+    </div>
+    <div class="feature-title">Personal brand growth</div>
+    <div class="feature-desc">14.5K-follower creator page, built organically — myself as proof that the playbook works.</div>
+  </div>
+  <div class="feature">
+    <span class="feature-num">004</span>
+    <div class="feature-icon">
+      <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="10" cy="10" r="3"/><circle cx="30" cy="8" r="3"/><circle cx="20" cy="22" r="3"/><circle cx="8" cy="30" r="3"/><circle cx="30" cy="30" r="3"/><path d="M12.4 12.2 L17.8 19.7 M27.7 9.9 L22.2 19.7 M18.3 24.4 L10.5 28.4 M22.7 24.6 L27.6 27.9"/></svg>
+    </div>
+    <div class="feature-title">AI-integrated workflow</div>
+    <div class="feature-desc">ChatGPT, Midjourney and automation woven into planning, packaging and production — not a replacement for instinct.</div>
+  </div>
+</div>
+
+<!-- ── CASE STUDIES ── -->
+<section class="section case-intro fade-in" id="work">
+  <div class="section-eyebrow"><span class="dot"></span>Case Studies</div>
+  <h2 class="section-title">The case studies.</h2>
+  <p class="section-sub">Four builds, four different rooms — a channel network, an agency roster, a media studio and a personal page grown from zero. Click any of them to open the details.</p>
+</section>
+
+<section class="section" style="padding-top:0;">
+<div class="case-list">
+  <div class="case-row">
+    <button class="case-row-head" aria-expanded="false">
+      <span class="case-row-num">01</span>
+      <span class="case-row-title">CapMint</span>
+      <span class="case-row-desc">Senior Video Editor — two channels, one growth engine. 1.9M views in 28 days.</span>
+      <span class="case-row-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
+    </button>
+    <div class="case-row-body">
+      <div class="case-row-inner">
+        <div class="case-eyebrow"><span class="dot" style="background:currentColor;"></span>01 / CAPMINT / SENIOR VIDEO EDITOR</div>
+        <hr class="case-rule">
+        <h3 class="case-headline">Two channels,<br>one growth engine.</h3>
+        <hr class="case-rule">
+        <div class="case-bottom">
+          <p class="case-desc">I plan, structure and package content for CapMint Daily and CapMint Investing — two YouTube channels under CapMint, where I work as senior video editor. Same hook-first system, applied to Indian brand and Gen Z culture stories on one channel and markets and personal finance on the other.</p>
+          <div class="case-stats">
+            <div><strong>1.9M</strong><span>views tracked in 28 days on CapMint Daily</span></div>
+            <div><strong>12.4%</strong><span>average CTR — 3–6x YouTube's typical benchmark</span></div>
+            <div><strong>10.4K</strong><span>subscribers gained in the same window</span></div>
+            <div><strong>2</strong><span>channels, one content system behind both</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="case-row">
+    <button class="case-row-head" aria-expanded="false">
+      <span class="case-row-num">02</span>
+      <span class="case-row-title">The Clips Agency</span>
+      <span class="case-row-desc">Video Editor, Dubai — packaging built to convert, not just perform.</span>
+      <span class="case-row-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
+    </button>
+    <div class="case-row-body">
+      <div class="case-row-inner">
+        <div class="case-eyebrow"><span class="dot" style="background:currentColor;"></span>02 / THE CLIPS AGENCY / VIDEO EDITOR · DUBAI, UAE</div>
+        <hr class="case-rule">
+        <h3 class="case-headline">Packaging built<br>to convert.</h3>
+        <hr class="case-rule">
+        <div class="case-bottom">
+          <p class="case-desc">Ongoing content strategy for Clips Agency's client roster — dentists, real estate agents, agency founders and personal brands. I plan the hook, structure the narrative and package short-form built for retention and lead generation, not just views.</p>
+          <div class="case-stats">
+            <div><strong>Fast</strong><span>turnaround on vertical, scroll-stopping cuts</span></div>
+            <div><strong>Multi</strong><span>format delivery from long-form source</span></div>
+            <div><strong>Lead-gen</strong><span>focused packaging, not just performance</span></div>
+            <div><strong>2024–25</strong><span>ongoing freelance collaboration</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="case-row">
+    <button class="case-row-head" aria-expanded="false">
+      <span class="case-row-num">03</span>
+      <span class="case-row-title">YaaS.Media</span>
+      <span class="case-row-desc">Video Editor, Bengaluru — structure first, always.</span>
+      <span class="case-row-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
+    </button>
+    <div class="case-row-body">
+      <div class="case-row-inner">
+        <div class="case-eyebrow"><span class="dot" style="background:currentColor;"></span>03 / YAAS.MEDIA / VIDEO EDITOR · BENGALURU</div>
+        <hr class="case-rule">
+        <h3 class="case-headline">Structure first,<br>always.</h3>
+        <hr class="case-rule">
+        <div class="case-bottom">
+          <p class="case-desc">Content strategy and production work with YaaS Media, contributing to Zoho's Builders Central, Zerodha's Rainmatter and Livspace, plus Farah Khan's Home Tour. I bring pacing and story structure to studio output across formats.</p>
+          <div class="case-stats">
+            <div><strong>3+</strong><span>brand channels worked across</span></div>
+            <div><strong>Cross</strong><span>format: short-form, long-form &amp; social cuts</span></div>
+            <div><strong>Studio</strong><span>-scale production, structure-first</span></div>
+            <div><strong>2023–24</strong><span>ongoing freelance collaboration</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="case-row">
+    <button class="case-row-head" aria-expanded="false">
+      <span class="case-row-num">04</span>
+      <span class="case-row-title">Personal Brand</span>
+      <span class="case-row-desc">@kumarrujjawal — 14.5K, built as proof of the system.</span>
+      <span class="case-row-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
+    </button>
+    <div class="case-row-body">
+      <div class="case-row-inner">
+        <div class="case-eyebrow"><span class="dot" style="background:currentColor;"></span>04 / PERSONAL BRAND / @KUMARRUJJAWAL</div>
+        <hr class="case-rule">
+        <h3 class="case-headline">14.5K, built as<br>proof of the system.</h3>
+        <hr class="case-rule">
+        <div class="case-bottom">
+          <p class="case-desc">My own creator page — where I test every format, hook and packaging idea before I take it to a brand. A verified account that doubles as a live portfolio and a direct line to other creators and editors.</p>
+          <div class="case-stats">
+            <div><strong>14.5K</strong><span>followers, verified creator</span></div>
+            <div><strong>100%</strong><span>self-produced: strategy, edit, packaging</span></div>
+            <div><strong>4+</strong><span>brand highlights: CapMint, Xplained, YaaS, Clips</span></div>
+            <div><strong>0</strong><span>ad spend — grown entirely organically</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ── PORTFOLIO ── -->
+<section class="section fade-in" id="portfolio">
+  <div class="section-eyebrow"><span class="dot"></span>Portfolio</div>
+  <h2 class="section-title">A few cuts, straight from the timeline.</h2>
+  <p class="section-sub">Short-form, long-form and podcast content I've strategized and produced. The full library lives on ujjawalkumar.carrd.co.</p>
+  <div style="height:36px;"></div>
+
+  <div class="video-grid">
+    <div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/_Qd_7pSAE8I?mute=1&rel=0&loop=1&controls=1&playlist=_Qd_7pSAE8I" allowfullscreen loading="lazy" title="Short form clip 1"></iframe></div>
+    <div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/FJZZaDDWaKw?mute=1&rel=0&loop=1&controls=1&playlist=FJZZaDDWaKw" allowfullscreen loading="lazy" title="Short form clip 2"></iframe></div>
+    <div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/ueRGc-IMkSw?mute=1&rel=0&loop=1&controls=1&playlist=ueRGc-IMkSw" allowfullscreen loading="lazy" title="Short form clip 3"></iframe></div>
+    <div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/6MKNqqhZaUQ?mute=1&rel=0&loop=1&controls=1&playlist=6MKNqqhZaUQ" allowfullscreen loading="lazy" title="Short form clip 4"></iframe></div>
+  </div>
+
+  <div class="longform-grid">
+    <div class="longform-wrap"><iframe src="https://www.youtube-nocookie.com/embed/27oaoQ2bDdw?mute=1&rel=0&loop=1&controls=1&playlist=27oaoQ2bDdw" allowfullscreen loading="lazy" title="Long form 1"></iframe></div>
+    <div class="longform-wrap"><iframe src="https://www.youtube-nocookie.com/embed/rqCvXZbwkKs?mute=1&rel=0&loop=1&controls=1&playlist=rqCvXZbwkKs" allowfullscreen loading="lazy" title="Long form 2"></iframe></div>
+    <div class="longform-wrap"><iframe src="https://www.youtube-nocookie.com/embed/_hUiaoa-kiE?mute=1&rel=0&loop=1&controls=1&playlist=_hUiaoa-kiE" allowfullscreen loading="lazy" title="Podcast clip"></iframe></div>
+  </div>
+
+  <div class="portfolio-cta">
+    <p>Want the whole reel? <strong>Every project I've shipped is hosted on ujjawalkumar.carrd.co</strong> — short-form, long-form, podcasts and thumbnails, all in one place.</p>
+    <a href="https://ujjawalkumar.carrd.co/" target="_blank" rel="noopener" class="btn btn-accent">Visit ujjawalkumar.carrd.co ↗</a>
+  </div>
+</section>
+
+<!-- ── EXPERIENCE ── -->
+<section class="section fade-in" id="experience">
+  <div class="section-eyebrow"><span class="dot"></span>Experience</div>
+  <h2 class="section-title">Where I've worked.</h2>
+  <div style="height:20px;"></div>
+
+  <div class="timeline">
+    <div class="t-item current">
+      <div class="t-date">Nov 2025 — Now</div>
+      <div class="t-marker"></div>
+      <div>
+        <div class="t-role">Senior Video Editor</div>
+        <div class="t-org">CapMint · Bengaluru</div>
+        <p class="t-desc">Own the full content pipeline across two YouTube channels — planning, packaging, production and brand consistency — from pre-production through to publish.</p>
+      </div>
+    </div>
+    <div class="t-item">
+      <div class="t-date">Jun 2024 — Jun 2025</div>
+      <div class="t-marker"></div>
+      <div>
+        <div class="t-role">Video Editor</div>
+        <div class="t-org">The Clips Agency · Dubai, UAE</div>
+        <p class="t-desc">Planned and packaged short and long-form content for dentists, real estate agents, agency founders and personal brands. Improved retention and supported client lead generation.</p>
+      </div>
+    </div>
+    <div class="t-item">
+      <div class="t-date">Sep 2023 — May 2024</div>
+      <div class="t-marker"></div>
+      <div>
+        <div class="t-role">Video Editor</div>
+        <div class="t-org">YaaS: YouTube as a Service · Bengaluru</div>
+        <p class="t-desc">Worked on content for Zoho's Builders Central, Zerodha's Rainmatter and Livspace. Contributed to Farah Khan's Home Tour and collaborated across multiple high-profile channels.</p>
+      </div>
+    </div>
+    <div class="t-item">
+      <div class="t-date">Jul 2022 — Oct 2022</div>
+      <div class="t-marker"></div>
+      <div>
+        <div class="t-role">Video Editor</div>
+        <div class="t-org">Propanda · Remote</div>
+        <p class="t-desc">Created YouTube thumbnails and reel covers for finance-focused creators, keeping brand consistency and platform-specific packaging front and center.</p>
+      </div>
+    </div>
+    <div class="t-item">
+      <div class="t-date">May 2022 — Oct 2022</div>
+      <div class="t-marker"></div>
+      <div>
+        <div class="t-role">Graphic Designer</div>
+        <div class="t-org">Team 121 Creators · Remote</div>
+        <p class="t-desc">Designed high-converting YouTube thumbnails focused on visual storytelling, CTR optimization and audience engagement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section class="section fade-in" id="about">
+  <div class="section-eyebrow"><span class="dot"></span>About</div>
+  <div class="about-wrap">
+    <p class="about-statement">I help brands and creators think past the single post — to the system that keeps an audience coming back, and the packaging that gets them to click in the first place.</p>
+    <p class="about-para">I'm Ujjawal Kumar Das, a content strategist and social media growth specialist based in India, working worldwide. I started in the edit bay in 2021, and four-plus years in, that hands-on production background is exactly what makes the strategy work — I know what's actually achievable in the timeline, not just what looks good on a slide.</p>
+    <p class="about-para">Today that means owning the content pipeline for CapMint's two YouTube channels, ongoing strategy work with The Clips Agency and YaaS.Media, and a community I built myself at atova.club — now 791 editors strong, grown with zero ad spend. My own page, @kumarrujjawal, is where I test every format before it goes to a client: 14.5K followers, entirely organic.</p>
+    <p class="about-para">Every content system I build runs through the same lens: strategy first, execution second. Hooks and retention data shape the plan; Premiere Pro, After Effects, Photoshop and Midjourney shape the output; ChatGPT and automation are woven in wherever they earn their place — never a replacement for instinct built from doing this daily.</p>
+    <a href="https://www.linkedin.com/in/kumarrujjawal/" target="_blank" rel="noopener" class="about-readmore">Read more on LinkedIn →</a>
+
+    <div class="about-stats">
+      <div class="about-stat"><strong>4+</strong><span>years building content systems since 2021</span></div>
+      <div class="about-stat"><strong>791</strong><span>member community built from zero at atova.club</span></div>
+      <div class="about-stat"><strong>14.5K</strong><span>organic followers on my own creator page</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── NOW BUILDING ── -->
+<section class="section fade-in" id="building">
+  <div class="section-eyebrow"><span class="dot"></span>Now Building</div>
+  <h2 class="section-title">Two things I'm building on the side.</h2>
+  <p class="section-sub">Outside of client work, I'm putting the same strategy-first thinking into two products of my own.</p>
+  <div style="height:36px;"></div>
+
+  <div class="build-grid">
+    <div class="build-card">
+      <span class="build-tag"><span class="dot"></span>01 · Product</span>
+      <div class="build-name">parakhna.com</div>
+      <p class="build-desc">"The right device for your degree. One answer." A device recommendation platform for Indian students — a 60-second, 7-question quiz that matches students to the right laptop, desktop or tablet from a curated list of ~45 genuinely viable options.</p>
+      <p class="build-sub">No signup, no sponsored picks, fully transparent about commissions — content and product strategy applied to a real buying decision.</p>
+      <div class="build-pills"><span class="build-pill">Content strategy</span><span class="build-pill">Product</span><span class="build-pill">Student audience</span></div>
+      <a href="https://parakhna.com" target="_blank" rel="noopener" class="btn btn-ghost">Visit parakhna.com ↗</a>
+    </div>
+    <div class="build-card">
+      <span class="build-tag"><span class="dot"></span>02 · Community</span>
+      <div class="build-name">atova.club</div>
+      <p class="build-desc">"Building one of India's strongest communities for passionate video editors." A home base for Indian editors — tutorials, gear comparisons, storytelling breakdowns and editor culture on Instagram, feeding a WhatsApp group where the real conversations happen.</p>
+      <p class="build-sub">Grown to 791 followers with zero ad spend — the same community-building playbook I bring to client accounts.</p>
+      <div class="build-pills"><span class="build-pill">Community growth</span><span class="build-pill">Instagram</span><span class="build-pill">791 members</span></div>
+      <a href="https://atova.club" target="_blank" rel="noopener" class="btn btn-ghost">Visit atova.club ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="section fade-in" id="testimonials">
+  <div class="section-eyebrow"><span class="dot"></span>What People Say</div>
+  <h2 class="section-title">Kind words from clients.</h2>
+  <p class="section-sub">A few notes from people I've worked with.</p>
+  <div style="height:36px;"></div>
+
+  <div class="testi-grid">
+    <div class="testi-card accent">
+      <p class="testi-quote">"Ujjawal Kumar Das is honestly a great editor to work with. He has a really strong sense of design and storytelling, and you can see that care in every frame he edits. Super reliable, easy to collaborate with, and always brings thoughtful creative inputs. Any team would be lucky to have him."</p>
+      <div><div class="testi-name">Faheem Syed</div><div class="testi-role">Creative Director, The Clips Agency</div></div>
+    </div>
+    <div class="testi-card line">
+      <p class="testi-quote">"Great brother, I saw so many people do many over stuff edits either human brain was evolve to visualise things that never can happen in real world still people do so much of over edits, I saw so many people in my office, Superb man."</p>
+      <div><div class="testi-name">Yash Rajpurohit</div><div class="testi-role">Video Editor</div></div>
+    </div>
+    <div class="testi-card cream">
+      <p class="testi-quote">"Bhai crazy work, always keep up the good work!"</p>
+      <div><div class="testi-name">Ashmit Shahi</div><div class="testi-role">Founder, Easeus Media</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="section fade-in" id="faq">
+  <div class="section-eyebrow"><span class="dot"></span>FAQ</div>
+  <h2 class="section-title">Questions people ask before we work together.</h2>
+  <p class="section-sub">Everything I usually get asked before a project kicks off.</p>
+  <div style="height:20px;"></div>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q">What do you actually help with — strategy or execution?<span class="plus"></span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>I work across both strategy and execution, but my strength is connecting the two.</p>
+        <p>I can help with content strategy, content pillars, ideation, formats, audience positioning, YouTube strategy, and content planning — and I also understand the execution side deeply because I've personally handled scripting, editing, motion design, production, publishing, and performance analysis.</p>
+        <p>So I don't just create a strategy and hand it off. I understand how to turn that strategy into content that actually gets produced and published.</p>
+      </div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Do you manage social media accounts end-to-end?<span class="plus"></span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>Yes. I've worked on content systems where I've been involved from ideation and planning to production, editing, publishing, and performance analysis.</p>
+        <p>I've also managed content teams — including coordinating editors, reviewing scripts, analyzing YouTube performance, planning content, and managing the end-to-end production pipeline.</p>
+        <p>My approach is to build a system where content isn't dependent on one person constantly figuring out what to post next.</p>
+      </div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What platforms do you work across?<span class="plus"></span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>My strongest platform is YouTube, especially long-form and short-form video.</p>
+        <p>I also work with Instagram/Reels and other short-form platforms, and I understand how to adapt the same core idea into different formats rather than simply reposting the exact same content everywhere.</p>
+        <p>I've personally built an audience on Instagram as well, so I understand the creator side of content in addition to the brand/business side.</p>
+      </div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can you build a content system from scratch for a new brand?<span class="plus"></span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>Yes — this is actually one of the areas I'm most interested in.</p>
+        <p>I'd start by understanding the brand, target audience, positioning, business objective, and competitive landscape. From there, I'd build:</p>
+        <ul>
+          <li>Content pillars</li>
+          <li>Audience/content buckets</li>
+          <li>Content formats</li>
+          <li>Ideation system</li>
+          <li>Content calendar</li>
+          <li>Production workflow</li>
+          <li>Scripting guidelines</li>
+          <li>Editing/visual guidelines</li>
+          <li>Distribution strategy</li>
+          <li>Performance tracking system</li>
+        </ul>
+        <p>The goal isn't just to create 10 good posts. It's to create a repeatable system that can consistently produce good content.</p>
+      </div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Do you work with clients outside India?<span class="plus"></span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>Yes. I've worked with creators and agencies, and I'm open to working with clients globally.</p>
+        <p>I've also worked across different content styles and industries, so I'm comfortable adapting to different audiences, brand voices, and creative requirements.</p>
+      </div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How do rates and packages work?<span class="plus"></span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>I generally prefer to price based on scope and the value of the work, rather than simply charging per video. For example, there's a big difference between:</p>
+        <ul>
+          <li><strong>Execution:</strong> Editing 20 short-form videos.</li>
+          <li><strong>Content management:</strong> Ideation + scripting + production + editing + publishing + analytics.</li>
+          <li><strong>Strategy:</strong> Building the entire content system, positioning, content pillars, formats, and growth strategy.</li>
+        </ul>
+        <p>So I'd first understand the scope, number of platforms, content volume, level of involvement, and business goals, and then propose a package accordingly.</p>
+      </div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How do I get started?<span class="plus"></span></button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>The easiest way is to have a short conversation about what you're trying to achieve with content, where you are currently, and what's not working.</p>
+        <p>From there, I can identify where I can add the most value — whether that's content strategy, building the system, managing production, or executing the content itself.</p>
+        <p>If it makes sense, we can then define the scope, deliverables, timeline, and pricing.</p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">Ujjawal Kumar Das</div>
+        <p class="footer-tagline">Content strategist and social media growth specialist — building content systems, growing channels, and running a 791-member editors' community at atova.club, alongside a student-tech product at parakhna.com.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/in/kumarrujjawal/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+          <a href="https://x.com/kumarrujjawal" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23.3 22h-7.1l-5.5-7.2L4.4 22H1.3l8.1-9.3L1 2h7.3l5 6.6L18.9 2zm-1.2 18h1.8L7.4 4h-2l12.3 16z"/></svg></a>
+          <a href="https://www.youtube.com/@kumarrujjawal" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.6-.46-5.32a3 3 0 0 0-2.1-2.1C18.7 4 12 4 12 4s-6.7 0-8.44.58a3 3 0 0 0-2.1 2.1C1 8.4 1 12 1 12s0 3.6.46 5.32a3 3 0 0 0 2.1 2.1C5.3 20 12 20 12 20s6.7 0 8.44-.58a3 3 0 0 0 2.1-2.1C23 15.6 23 12 23 12zM9.75 15.5v-7l6 3.5-6 3.5z"/></svg></a>
+          <a href="https://www.instagram.com/kumarrujjawal/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.instagram.com/atova.club/" target="_blank" rel="noopener" aria-label="Atova Club Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Site</div>
+        <a href="#work">Case Studies</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#experience">Experience</a>
+        <a href="#about">About</a>
+        <a href="#building">Now Building</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Elsewhere</div>
+        <a href="https://www.linkedin.com/in/kumarrujjawal/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://x.com/kumarrujjawal" target="_blank" rel="noopener">X / Twitter</a>
+        <a href="https://www.youtube.com/@kumarrujjawal" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.instagram.com/kumarrujjawal/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.instagram.com/atova.club/" target="_blank" rel="noopener">atova.club (IG)</a>
+        <a href="https://ujjawalkumar.carrd.co/" target="_blank" rel="noopener">ujjawalkumar.carrd.co</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contact</div>
+        <a href="mailto:ujjawalkumardas@gmail.com">ujjawalkumardas@gmail.com</a>
+        <a href="https://parakhna.com" target="_blank" rel="noopener">parakhna.com</a>
+        <a href="https://atova.club" target="_blank" rel="noopener">atova.club</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ujjawal Kumar Das. All rights reserved.</span>
+      <a href="#home">Top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const root = document.documentElement;
+  const themeToggle = document.getElementById('themeToggle');
+  const iconMoon = themeToggle.querySelector('.icon-moon');
+  const iconSun = themeToggle.querySelector('.icon-sun');
+
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    iconMoon.style.display = theme === 'dark' ? 'none' : 'block';
+    iconSun.style.display = theme === 'dark' ? 'block' : 'none';
+  }
+
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  applyTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+
+  themeToggle.addEventListener('click', () => {
+    applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+
+  const faders = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  faders.forEach(el => observer.observe(el));
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
+    });
+  });
+
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  document.querySelectorAll('.case-row').forEach(row => {
+    const head = row.querySelector('.case-row-head');
+    head.addEventListener('click', () => {
+      const wasOpen = row.classList.contains('open');
+      document.querySelectorAll('.case-row').forEach(r => {
+        r.classList.remove('open');
+        r.querySelector('.case-row-head').setAttribute('aria-expanded', 'false');
+      });
+      if (!wasOpen) {
+        row.classList.add('open');
+        head.setAttribute('aria-expanded', 'true');
+        row.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
