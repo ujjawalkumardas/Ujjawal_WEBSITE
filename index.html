@@ -7,57 +7,73 @@
 <meta name="description" content="Content Strategist building content systems that grow. 4+ years turning raw footage and scattered ideas into pipelines that compound.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script>
+  /* Set the theme before first paint so the page never flashes the wrong one */
+  (function () {
+    try {
+      var saved = localStorage.getItem('theme');
+      var t = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  })();
+</script>
 </head>
 <body>
 
-<!-- cursor-driven fluid smoke -->
-<canvas id="fluid" aria-hidden="true"></canvas>
-
-<!-- ambient glows -->
-<div class="ambient" aria-hidden="true">
-  <span class="glow glow-warm"></span>
-</div>
-
 <!-- ============================ NAV ============================ -->
-<div class="nav-shell">
-  <nav class="glass-nav">
-    <span class="glass-filter"></span>
-    <span class="glass-overlay"></span>
-    <span class="glass-specular"></span>
+<header class="site-nav">
+  <div class="nav-inner">
+    <a class="wordmark" href="#top">Ujjawal Kumar Das</a>
 
-    <div class="glass-content">
-      <a class="logo" href="#top" aria-label="Ujjawal Kumar Das — home">U</a>
+    <nav class="nav-list">
+      <a class="nav-item" href="#portfolio">Portfolio</a>
+      <a class="nav-item" href="#work">Work</a>
+      <a class="nav-item" href="#experience">Experience</a>
+      <a class="nav-item" href="#about">About</a>
+      <a class="nav-item" href="#faq">FAQ</a>
+    </nav>
 
-      <div class="nav-list">
-        <a class="nav-item" href="#work">Work</a>
-        <a class="nav-item" href="#portfolio">Portfolio</a>
-        <a class="nav-item" href="#experience">Experience</a>
-        <a class="nav-item" href="#about">About</a>
-        <a class="nav-item" href="#faq">FAQ</a>
-      </div>
-
-      <a class="chat-btn" href="mailto:ujjawalkumardas@gmail.com">Let's chat</a>
+    <div class="nav-actions">
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch theme" title="Switch theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2" fill="currentColor"/>
+          <g stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+            <path d="M12 2.6v2.6M12 18.8v2.6M2.6 12h2.6M18.8 12h2.6M5.3 5.3l1.9 1.9M16.8 16.8l1.9 1.9M18.7 5.3l-1.9 1.9M7.2 16.8l-1.9 1.9"/>
+          </g>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M20.2 14.7A8.4 8.4 0 0 1 9.3 3.8a8.5 8.5 0 1 0 10.9 10.9z"/>
+        </svg>
+        <span>Theme</span>
+      </button>
+      <a class="nav-cta" href="https://calendly.com/cutveo/30min" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M4 6.5h16v14H4zM4 10.5h16M8.5 3.5v4M15.5 3.5v4"/></svg>
+        Book a call
+      </a>
     </div>
-  </nav>
-</div>
+  </div>
+</header>
 
 <!-- ============================ HERO ============================ -->
 <main id="top">
   <section class="hero">
 
-    <h1 class="hero-title animate-1">
-      <span class="title-line">Hi, I'm Ujjawal Kumar Das,</span>
-      <span class="title-line">Content Strategist Building Growth Systems</span>
-    </h1>
+    <h1 class="hero-title animate-1">Hi, I'm Ujjawal Kumar Das, Content Strategist</h1>
 
-    <p class="hero-sub animate-2">
-      With 4+ years in content and social growth, I build full-funnel short-form systems for YouTube and
-      Instagram — helping brands and creators move past scattered posts into pipelines that compound.
-    </p>
+    <div class="hero-lower animate-2">
+      <div class="hero-lower-col">
+        <p class="hero-sub">
+          With 4+ years in content and social growth, I build full-funnel short-form systems for YouTube and
+          Instagram — helping brands and creators move past scattered posts into pipelines that compound.
+        </p>
 
-    <div class="socials animate-3">
+        <a class="book-btn" href="https://calendly.com/cutveo/30min" target="_blank" rel="noopener">Book a call</a>
+
+        <div class="socials">
       <a href="https://www.linkedin.com/in/kumarrujjawal/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 .02 5 2.5 2.5 0 0 1-.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H9z"/></svg>
       </a>
@@ -71,41 +87,72 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.06 1.8.25 2.2.42.6.22 1 .48 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c0 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2 0-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c0-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 3.1A6.7 6.7 0 1 0 18.7 12 6.7 6.7 0 0 0 12 5.3zm0 11a4.3 4.3 0 1 1 4.3-4.3 4.3 4.3 0 0 1-4.3 4.3zm6.9-11.2a1.6 1.6 0 1 1-1.6-1.6 1.6 1.6 0 0 1 1.6 1.6z"/></svg>
       </a>
     </div>
-
-    <div class="cta-row animate-4" id="resume">
-      <button class="resume-btn" id="resumeBtn">Download Resume</button>
-      <span class="toast" id="toast" hidden></span>
+      </div>
     </div>
 
-    <!-- stats marquee + glows -->
-    <div class="stats-region">
-      <div class="stat-glows" aria-hidden="true">
-        <span class="glow glow-red"></span>
-        <span class="glow glow-deep"></span>
-        <span class="glow glow-white"></span>
+    <div class="hero-specs animate-3">
+      <div class="spec">
+        <p class="spec-label">Platforms</p>
+        <p class="spec-item">YouTube</p>
+        <p class="spec-item">Instagram</p>
       </div>
-
-      <div class="stats-ticker animate-6">
-        <div class="stats-track">
-          <div class="stat"><span class="stat-num">1.9M</span><span class="stat-lbl">Views in 28 days on CapMint Daily</span></div>
-          <div class="stat"><span class="stat-num">12.4%</span><span class="stat-lbl">Average CTR, 3–6× the benchmark</span></div>
-          <div class="stat"><span class="stat-num">10.4K</span><span class="stat-lbl">Subscribers gained on CapMint</span></div>
-          <div class="stat"><span class="stat-num">14.5K</span><span class="stat-lbl">Organic followers, zero ad spend</span></div>
-          <div class="stat"><span class="stat-num">791</span><span class="stat-lbl">Editors in the atova.club community</span></div>
-          <div class="stat"><span class="stat-num">4+</span><span class="stat-lbl">Years building content systems</span></div>
-          <!-- duplicated for a seamless loop -->
-          <div class="stat" aria-hidden="true"><span class="stat-num">1.9M</span><span class="stat-lbl">Views in 28 days on CapMint Daily</span></div>
-          <div class="stat" aria-hidden="true"><span class="stat-num">12.4%</span><span class="stat-lbl">Average CTR, 3–6× the benchmark</span></div>
-          <div class="stat" aria-hidden="true"><span class="stat-num">10.4K</span><span class="stat-lbl">Subscribers gained on CapMint</span></div>
-          <div class="stat" aria-hidden="true"><span class="stat-num">14.5K</span><span class="stat-lbl">Organic followers, zero ad spend</span></div>
-          <div class="stat" aria-hidden="true"><span class="stat-num">791</span><span class="stat-lbl">Editors in the atova.club community</span></div>
-          <div class="stat" aria-hidden="true"><span class="stat-num">4+</span><span class="stat-lbl">Years building content systems</span></div>
-        </div>
+      <div class="spec">
+        <p class="spec-label">Editing</p>
+        <p class="spec-item">Long-form</p>
+        <p class="spec-item">Shorts &amp; Reels</p>
+        <p class="spec-item">Podcast</p>
+      </div>
+      <div class="spec">
+        <p class="spec-label">Management</p>
+        <p class="spec-item">Strategy</p>
+        <p class="spec-item">Packaging</p>
+        <p class="spec-item">Production</p>
+      </div>
+      <div class="spec">
+        <p class="spec-label">Tools</p>
+        <p class="spec-item">Premiere Pro</p>
+        <p class="spec-item">After Effects</p>
+        <p class="spec-item">Photoshop</p>
+      </div>
+      <div class="spec spec-end">
+        <p class="spec-label">Booking</p>
+        <p class="spec-item"><a href="https://calendly.com/cutveo/30min" target="_blank" rel="noopener">Short intro call</a></p>
       </div>
     </div>
 
   </section>
 
+
+  <!-- ============================ PORTFOLIO ============================ -->
+  <section class="sec" id="portfolio">
+    <p class="sec-eyebrow"><span class="dot"></span>Portfolio</p>
+    <h2 class="sec-heading">A few cuts, straight from the timeline.</h2>
+    <p class="sec-intro">
+      Short-form, long-form and podcast content I've strategized and produced.
+      The full library lives on ujjawalkumar.carrd.co.
+    </p>
+
+    <div class="video-grid">
+      <div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/_Qd_7pSAE8I?mute=1&amp;rel=0&amp;loop=1&amp;controls=1&amp;playlist=_Qd_7pSAE8I" title="Reels editing with motion graphics" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/FJZZaDDWaKw?mute=1&amp;rel=0&amp;loop=1&amp;controls=1&amp;playlist=FJZZaDDWaKw" title="Reel editing with motion graphics" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/ueRGc-IMkSw?mute=1&amp;rel=0&amp;loop=1&amp;controls=1&amp;playlist=ueRGc-IMkSw" title="Short-form cut" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/6MKNqqhZaUQ?mute=1&amp;rel=0&amp;loop=1&amp;controls=1&amp;playlist=6MKNqqhZaUQ" title="Reels editing with motion graphics" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+    </div>
+
+    <div class="longform-grid">
+      <div class="longform-wrap"><iframe src="https://www.youtube-nocookie.com/embed/27oaoQ2bDdw?mute=1&amp;rel=0&amp;loop=1&amp;controls=1&amp;playlist=27oaoQ2bDdw" title="Podcast trailer with motion graphics" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="longform-wrap"><iframe src="https://www.youtube-nocookie.com/embed/rqCvXZbwkKs?mute=1&amp;rel=0&amp;loop=1&amp;controls=1&amp;playlist=rqCvXZbwkKs" title="Podcast trailer with motion graphics" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="longform-wrap"><iframe src="https://www.youtube-nocookie.com/embed/_hUiaoa-kiE?mute=1&amp;rel=0&amp;loop=1&amp;controls=1&amp;playlist=_hUiaoa-kiE" title="Long-form interview edit" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+    </div>
+
+    <div class="reel-cta">
+      <p>
+        <strong>Want the whole reel?</strong> Every project I've shipped is hosted on
+        ujjawalkumar.carrd.co — short-form, long-form, podcasts and thumbnails, all in one place.
+      </p>
+      <a class="btn-red" href="https://ujjawalkumar.carrd.co" target="_blank" rel="noopener">Visit ujjawalkumar.carrd.co ↗</a>
+    </div>
+  </section>
 
   <!-- ============================ CASE STUDIES ============================ -->
   <section class="sec" id="work">
@@ -250,37 +297,6 @@
         </div>
       </article>
 
-    </div>
-  </section>
-
-  <!-- ============================ PORTFOLIO ============================ -->
-  <section class="sec" id="portfolio">
-    <p class="sec-eyebrow"><span class="dot"></span>Portfolio</p>
-    <h2 class="sec-heading">A few cuts, straight from the timeline.</h2>
-    <p class="sec-intro">
-      Short-form, long-form and podcast content I've strategized and produced.
-      The full library lives on ujjawalkumar.carrd.co.
-    </p>
-
-    <div class="video-grid">
-      <div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/_Qd_7pSAE8I?mute=1&amp;rel=0&amp;loop=1&amp;controls=1&amp;playlist=_Qd_7pSAE8I" title="Reels editing with motion graphics" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
-      <div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/FJZZaDDWaKw?mute=1&amp;rel=0&amp;loop=1&amp;controls=1&amp;playlist=FJZZaDDWaKw" title="Reel editing with motion graphics" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
-      <div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/ueRGc-IMkSw?mute=1&amp;rel=0&amp;loop=1&amp;controls=1&amp;playlist=ueRGc-IMkSw" title="Short-form cut" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
-      <div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/6MKNqqhZaUQ?mute=1&amp;rel=0&amp;loop=1&amp;controls=1&amp;playlist=6MKNqqhZaUQ" title="Reels editing with motion graphics" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
-    </div>
-
-    <div class="longform-grid">
-      <div class="longform-wrap"><iframe src="https://www.youtube-nocookie.com/embed/27oaoQ2bDdw?mute=1&amp;rel=0&amp;loop=1&amp;controls=1&amp;playlist=27oaoQ2bDdw" title="Podcast trailer with motion graphics" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
-      <div class="longform-wrap"><iframe src="https://www.youtube-nocookie.com/embed/rqCvXZbwkKs?mute=1&amp;rel=0&amp;loop=1&amp;controls=1&amp;playlist=rqCvXZbwkKs" title="Podcast trailer with motion graphics" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
-      <div class="longform-wrap"><iframe src="https://www.youtube-nocookie.com/embed/_hUiaoa-kiE?mute=1&amp;rel=0&amp;loop=1&amp;controls=1&amp;playlist=_hUiaoa-kiE" title="Long-form interview edit" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
-    </div>
-
-    <div class="reel-cta">
-      <p>
-        <strong>Want the whole reel?</strong> Every project I've shipped is hosted on
-        ujjawalkumar.carrd.co — short-form, long-form, podcasts and thumbnails, all in one place.
-      </p>
-      <a class="btn-red" href="https://ujjawalkumar.carrd.co" target="_blank" rel="noopener">Visit ujjawalkumar.carrd.co ↗</a>
     </div>
   </section>
 
@@ -569,8 +585,8 @@
 
       <nav class="footer-col">
         <p class="footer-col-title">Site</p>
-        <a href="#work">Case Studies</a>
         <a href="#portfolio">Portfolio</a>
+        <a href="#work">Case Studies</a>
         <a href="#experience">Experience</a>
         <a href="#about">About</a>
         <a href="#building">Now Building</a>
@@ -602,7 +618,6 @@
   </div>
 </footer>
 
-<script src="fluid-cursor.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
