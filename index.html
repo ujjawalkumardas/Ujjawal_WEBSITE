@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=20">
 <script>
   /* Set the theme before first paint so the page never flashes the wrong one */
   (function () {
@@ -24,13 +24,14 @@
 </head>
 <body>
 
+
 <!-- ============================ NAV ============================ -->
 <header class="site-nav">
   <div class="nav-inner">
     <a class="wordmark" href="#top">Ujjawal Kumar Das</a>
 
     <nav class="nav-list">
-      <a class="nav-item" href="#portfolio">Portfolio</a>
+      <a class="nav-item" href="portfolio.html">Portfolio</a>
       <a class="nav-item" href="#work">Work</a>
       <a class="nav-item" href="#experience">Experience</a>
       <a class="nav-item" href="#about">About</a>
@@ -38,18 +39,6 @@
     </nav>
 
     <div class="nav-actions">
-      <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch theme" title="Switch theme">
-        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="12" cy="12" r="4.2" fill="currentColor"/>
-          <g stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
-            <path d="M12 2.6v2.6M12 18.8v2.6M2.6 12h2.6M18.8 12h2.6M5.3 5.3l1.9 1.9M16.8 16.8l1.9 1.9M18.7 5.3l-1.9 1.9M7.2 16.8l-1.9 1.9"/>
-          </g>
-        </svg>
-        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
-          <path fill="currentColor" d="M20.2 14.7A8.4 8.4 0 0 1 9.3 3.8a8.5 8.5 0 1 0 10.9 10.9z"/>
-        </svg>
-        <span>Theme</span>
-      </button>
       <a class="nav-cta" href="https://calendly.com/cutveo/30min" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M4 6.5h16v14H4zM4 10.5h16M8.5 3.5v4M15.5 3.5v4"/></svg>
         Book a call
@@ -61,19 +50,19 @@
 <!-- ============================ HERO ============================ -->
 <main id="top">
   <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-panel hero-text">
+        <h1 class="hero-title animate-1">Hi, I'm Ujjawal Kumar Das,<br> Content Strategist</h1>
 
-    <h1 class="hero-title animate-1">Hi, I'm Ujjawal Kumar Das, Content Strategist</h1>
+        <div class="hero-lower animate-2">
+          <p class="hero-sub">
+            With 4+ years in content and social growth, I build full-funnel short-form systems for YouTube and
+            Instagram — helping brands and creators move past scattered posts into pipelines that compound.
+          </p>
 
-    <div class="hero-lower animate-2">
-      <div class="hero-lower-col">
-        <p class="hero-sub">
-          With 4+ years in content and social growth, I build full-funnel short-form systems for YouTube and
-          Instagram — helping brands and creators move past scattered posts into pipelines that compound.
-        </p>
+          <a class="book-btn" href="https://calendly.com/cutveo/30min" target="_blank" rel="noopener">Book a call</a>
 
-        <a class="book-btn" href="https://calendly.com/cutveo/30min" target="_blank" rel="noopener">Book a call</a>
-
-        <div class="socials">
+          <div class="socials">
       <a href="https://www.linkedin.com/in/kumarrujjawal/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 .02 5 2.5 2.5 0 0 1-.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H9z"/></svg>
       </a>
@@ -87,39 +76,31 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.06 1.8.25 2.2.42.6.22 1 .48 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c0 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2 0-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c0-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 3.1A6.7 6.7 0 1 0 18.7 12 6.7 6.7 0 0 0 12 5.3zm0 11a4.3 4.3 0 1 1 4.3-4.3 4.3 4.3 0 0 1-4.3 4.3zm6.9-11.2a1.6 1.6 0 1 1-1.6-1.6 1.6 1.6 0 0 1 1.6 1.6z"/></svg>
       </a>
     </div>
+        </div>
+      </div>
+
+      <div class="hero-panel hero-mascot animate-3">
+        <!-- Pixel crosses beside the mascot -->
+        <svg class="spark s1" viewBox="0 0 5 5" aria-hidden="true" shape-rendering="crispEdges"><path d="M2 0h1v5H2zM0 2h5v1H0z" fill="currentColor"/></svg>
+        <svg class="spark s2" viewBox="0 0 5 5" aria-hidden="true" shape-rendering="crispEdges"><path d="M2 0h1v5H2zM0 2h5v1H0z" fill="currentColor"/></svg>
+
+        <svg class="mascot" viewBox="0 0 240 240" role="img" aria-label="Ujjawal's mascot, a small round creature whose eyes follow your cursor">
+          <defs>
+            <radialGradient id="mascotBody" cx="35%" cy="28%" r="80%">
+              <stop offset="0" stop-color="#5A2410"/>
+              <stop offset="0.55" stop-color="#220C05"/>
+              <stop offset="1" stop-color="#120502"/>
+            </radialGradient>
+          </defs>
+          <path fill="url(#mascotBody)" stroke="url(#mascotBody)" stroke-width="22" stroke-linejoin="round"
+                d="M46 78 L62 26 L100 60 Q120 55 140 60 L178 26 L194 78 Q218 124 204 170 Q186 220 120 220 Q54 220 36 170 Q22 124 46 78 Z"/>
+          <g class="eyes">
+            <ellipse class="eye" cx="94" cy="128" rx="17" ry="27"/>
+            <ellipse class="eye" cx="146" cy="128" rx="17" ry="27"/>
+          </g>
+        </svg>
       </div>
     </div>
-
-    <div class="hero-specs animate-3">
-      <div class="spec">
-        <p class="spec-label">Platforms</p>
-        <p class="spec-item">YouTube</p>
-        <p class="spec-item">Instagram</p>
-      </div>
-      <div class="spec">
-        <p class="spec-label">Editing</p>
-        <p class="spec-item">Long-form</p>
-        <p class="spec-item">Shorts &amp; Reels</p>
-        <p class="spec-item">Podcast</p>
-      </div>
-      <div class="spec">
-        <p class="spec-label">Management</p>
-        <p class="spec-item">Strategy</p>
-        <p class="spec-item">Packaging</p>
-        <p class="spec-item">Production</p>
-      </div>
-      <div class="spec">
-        <p class="spec-label">Tools</p>
-        <p class="spec-item">Premiere Pro</p>
-        <p class="spec-item">After Effects</p>
-        <p class="spec-item">Photoshop</p>
-      </div>
-      <div class="spec spec-end">
-        <p class="spec-label">Booking</p>
-        <p class="spec-item"><a href="https://calendly.com/cutveo/30min" target="_blank" rel="noopener">Short intro call</a></p>
-      </div>
-    </div>
-
   </section>
 
 
@@ -132,17 +113,22 @@
       The full library lives on ujjawalkumar.carrd.co.
     </p>
 
-    <div class="video-grid">
-      <div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/_Qd_7pSAE8I?mute=1&amp;rel=0&amp;loop=1&amp;controls=1&amp;playlist=_Qd_7pSAE8I" title="Reels editing with motion graphics" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
-      <div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/FJZZaDDWaKw?mute=1&amp;rel=0&amp;loop=1&amp;controls=1&amp;playlist=FJZZaDDWaKw" title="Reel editing with motion graphics" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
-      <div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/ueRGc-IMkSw?mute=1&amp;rel=0&amp;loop=1&amp;controls=1&amp;playlist=ueRGc-IMkSw" title="Short-form cut" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
-      <div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/6MKNqqhZaUQ?mute=1&amp;rel=0&amp;loop=1&amp;controls=1&amp;playlist=6MKNqqhZaUQ" title="Reels editing with motion graphics" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
-    </div>
-
-    <div class="longform-grid">
-      <div class="longform-wrap"><iframe src="https://www.youtube-nocookie.com/embed/27oaoQ2bDdw?mute=1&amp;rel=0&amp;loop=1&amp;controls=1&amp;playlist=27oaoQ2bDdw" title="Podcast trailer with motion graphics" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
-      <div class="longform-wrap"><iframe src="https://www.youtube-nocookie.com/embed/rqCvXZbwkKs?mute=1&amp;rel=0&amp;loop=1&amp;controls=1&amp;playlist=rqCvXZbwkKs" title="Podcast trailer with motion graphics" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
-      <div class="longform-wrap"><iframe src="https://www.youtube-nocookie.com/embed/_hUiaoa-kiE?mute=1&amp;rel=0&amp;loop=1&amp;controls=1&amp;playlist=_hUiaoa-kiE" title="Long-form interview edit" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+    <div class="marquee" aria-label="Short-form edits">
+      <div class="marquee-track">
+        <div class="video-wrap"><video data-src="assets/portfolio/reel-01.mp4" muted loop playsinline preload="none" aria-label="Caption-punch talking head"></video></div>
+        <div class="video-wrap"><video data-src="assets/portfolio/reel-02.mp4" muted loop playsinline preload="none" aria-label="Subtitled b-roll"></video></div>
+        <div class="video-wrap"><video data-src="assets/portfolio/reel-03.mp4" muted loop playsinline preload="none" aria-label="Kinetic-type podcast cut"></video></div>
+        <div class="video-wrap"><video data-src="assets/portfolio/reel-04.mp4" muted loop playsinline preload="none" aria-label="Callout-led explainer"></video></div>
+        <div class="video-wrap"><video data-src="assets/portfolio/reel-05.mp4" muted loop playsinline preload="none" aria-label="Composited product frame"></video></div>
+        <div class="video-wrap"><video data-src="assets/portfolio/reel-06.mp4" muted loop playsinline preload="none" aria-label="Archive-ad opener"></video></div>
+        <div class="video-wrap"><video data-src="assets/portfolio/reel-07.mp4" muted loop playsinline preload="none" aria-label="Documentary profile card"></video></div>
+        <div class="video-wrap"><video data-src="assets/portfolio/reel-08.mp4" muted loop playsinline preload="none" aria-label="Graphic-led title sequence"></video></div>
+        <div class="video-wrap"><video data-src="assets/portfolio/clips-v1.mp4" muted loop playsinline preload="none" aria-label="Podcast to Reels editing"></video></div>
+        <div class="video-wrap"><video data-src="assets/portfolio/clips-v2.mp4" muted loop playsinline preload="none" aria-label="Podcast to Reels with motion graphics"></video></div>
+        <div class="video-wrap"><video data-src="assets/portfolio/clips-v3.mp4" muted loop playsinline preload="none" aria-label="Podcast to Reels with motion graphics"></video></div>
+        <div class="video-wrap"><video data-src="assets/portfolio/clips-v4.mp4" muted loop playsinline preload="none" aria-label="Reels editing with motion graphics"></video></div>
+        <div class="video-wrap"><video data-src="assets/portfolio/clips-v5.mp4" muted loop playsinline preload="none" aria-label="Reels editing with motion graphics"></video></div>
+      </div>
     </div>
 
     <div class="reel-cta">
@@ -194,6 +180,39 @@
                 <div><span class="m-num">2</span><span class="m-cap">channels, one content system behind both</span></div>
               </div>
             </div>
+            <div class="marquee marquee--panel" aria-label="CapMint edits">
+              <div class="marquee-track">
+          <div class="longform-wrap"><video data-src="assets/portfolio/yt-01.mp4" muted loop playsinline preload="none" aria-label="Coastline market map"></video></div>
+          <div class="longform-wrap"><video data-src="assets/portfolio/yt-02.mp4" muted loop playsinline preload="none" aria-label="Stamp-grid motif"></video></div>
+          <div class="longform-wrap"><video data-src="assets/portfolio/yt-03.mp4" muted loop playsinline preload="none" aria-label="Colour-field reset"></video></div>
+          <div class="longform-wrap"><video data-src="assets/portfolio/yt-04.mp4" muted loop playsinline preload="none" aria-label="Territory reveal"></video></div>
+          <div class="longform-wrap"><video data-src="assets/portfolio/yt-05.mp4" muted loop playsinline preload="none" aria-label="Product line-up card"></video></div>
+          <div class="longform-wrap"><video data-src="assets/portfolio/yt-06.mp4" muted loop playsinline preload="none" aria-label="Archive era title"></video></div>
+          <div class="longform-wrap"><video data-src="assets/portfolio/yt-07.mp4" muted loop playsinline preload="none" aria-label="Competitor wall"></video></div>
+          <div class="longform-wrap"><video data-src="assets/portfolio/yt-08.mp4" muted loop playsinline preload="none" aria-label="Market highlight"></video></div>
+          <div class="longform-wrap"><video data-src="assets/portfolio/yt-09.mp4" muted loop playsinline preload="none" aria-label="Archive ad pan"></video></div>
+          <div class="longform-wrap"><video data-src="assets/portfolio/yt-10.mp4" muted loop playsinline preload="none" aria-label="Product spotlight"></video></div>
+          <div class="longform-wrap"><video data-src="assets/portfolio/yt-11.mp4" muted loop playsinline preload="none" aria-label="Publication citation card"></video></div>
+          <div class="longform-wrap"><video data-src="assets/portfolio/yt-12.mp4" muted loop playsinline preload="none" aria-label="Kinetic line reveal"></video></div>
+          <div class="longform-wrap"><video data-src="assets/portfolio/yt-13.mp4" muted loop playsinline preload="none" aria-label="Icon-and-wordmark reveal"></video></div>
+          <div class="longform-wrap"><video data-src="assets/portfolio/yt-14.mp4" muted loop playsinline preload="none" aria-label="Cost-breakdown table"></video></div>
+          <div class="longform-wrap"><video data-src="assets/portfolio/yt-15.mp4" muted loop playsinline preload="none" aria-label="Framed photo carousel"></video></div>
+          <div class="longform-wrap"><video data-src="assets/portfolio/yt-16.mp4" muted loop playsinline preload="none" aria-label="Year-marker timeline"></video></div>
+          <div class="longform-wrap"><video data-src="assets/portfolio/yt-17.mp4" muted loop playsinline preload="none" aria-label="Portrait with data badge"></video></div>
+          <div class="longform-wrap"><video data-src="assets/portfolio/yt-18.mp4" muted loop playsinline preload="none" aria-label="Abstract concept graphic"></video></div>
+          <div class="longform-wrap"><video data-src="assets/portfolio/yt-19.mp4" muted loop playsinline preload="none" aria-label="Brand card reveal"></video></div>
+          <div class="longform-wrap"><video data-src="assets/portfolio/yt-20.mp4" muted loop playsinline preload="none" aria-label="Overhead desk checklist"></video></div>
+          <div class="longform-wrap"><video data-src="assets/portfolio/yt-21.mp4" muted loop playsinline preload="none" aria-label="Callout-ready product shot"></video></div>
+          <div class="longform-wrap"><video data-src="assets/portfolio/yt-22.mp4" muted loop playsinline preload="none" aria-label="Layered photo collage"></video></div>
+          <div class="longform-wrap"><video data-src="assets/portfolio/yt-23.mp4" muted loop playsinline preload="none" aria-label="Interview subject at podium"></video></div>
+          <div class="longform-wrap"><video data-src="assets/portfolio/yt-24.mp4" muted loop playsinline preload="none" aria-label="Gradient colour card"></video></div>
+          <div class="longform-wrap"><video data-src="assets/portfolio/yt-25.mp4" muted loop playsinline preload="none" aria-label="Rotated year card"></video></div>
+          <div class="longform-wrap"><video data-src="assets/portfolio/yt-26.mp4" muted loop playsinline preload="none" aria-label="Vintage logo card"></video></div>
+              </div>
+            </div>
+            <div class="panel-foot">
+              <a class="btn-red" href="work/capmint.html">View full case study →</a>
+            </div>
           </div>
         </div>
       </article>
@@ -226,6 +245,19 @@
                 <div><span class="m-num">Dubai</span><span class="m-cap">agency run remotely from Bengaluru</span></div>
                 <div><span class="m-num">Vertical</span><span class="m-cap">the format the entire roster was built on</span></div>
               </div>
+            </div>
+            <div class="marquee marquee--panel" aria-label="The Clips Agency edits">
+              <div class="marquee-track">
+                <div class="longform-wrap"><video data-src="assets/portfolio/clips-h1.mp4" muted loop playsinline preload="none" aria-label="Podcast trailer opener"></video></div>
+                <div class="longform-wrap"><video data-src="assets/portfolio/clips-h2.mp4" muted loop playsinline preload="none" aria-label="Podcast trailer"></video></div>
+                <div class="longform-wrap"><video data-src="assets/portfolio/clips-h3.mp4" muted loop playsinline preload="none" aria-label="Podcast trailer"></video></div>
+                <div class="longform-wrap"><video data-src="assets/portfolio/clips-h4.mp4" muted loop playsinline preload="none" aria-label="Podcast trailer"></video></div>
+                <div class="longform-wrap"><video data-src="assets/portfolio/clips-h5.mp4" muted loop playsinline preload="none" aria-label="Podcast trailer"></video></div>
+                <div class="longform-wrap"><video data-src="assets/portfolio/clips-h6.mp4" muted loop playsinline preload="none" aria-label="Podcast trailer"></video></div>
+              </div>
+            </div>
+            <div class="panel-foot">
+              <a class="btn-red" href="work/clips-agency.html">View full case study →</a>
             </div>
           </div>
         </div>
@@ -260,6 +292,20 @@
                 <div><span class="m-num">0</span><span class="m-cap">templates reused between brands</span></div>
               </div>
             </div>
+            <div class="marquee marquee--panel" aria-label="YaaS.Media edits">
+              <div class="marquee-track">
+                <div class="longform-wrap"><video data-src="assets/portfolio/yaas-h1.mp4" muted loop playsinline preload="none" aria-label="Farah Khan home tour"></video></div>
+                <div class="longform-wrap"><video data-src="assets/portfolio/yaas-h2.mp4" muted loop playsinline preload="none" aria-label="Fighting Cancer — The Other Side with Dilip"></video></div>
+                <div class="longform-wrap"><video data-src="assets/portfolio/yaas-h3.mp4" muted loop playsinline preload="none" aria-label="Zerodha Rainmatter"></video></div>
+                <div class="longform-wrap"><video data-src="assets/portfolio/yaas-h4.mp4" muted loop playsinline preload="none" aria-label="Rohan interview"></video></div>
+                <div class="longform-wrap"><video data-src="assets/portfolio/yaas-h5.mp4" muted loop playsinline preload="none" aria-label="AI explainer"></video></div>
+                <div class="longform-wrap"><video data-src="assets/portfolio/yaas-h6.mp4" muted loop playsinline preload="none" aria-label="AI explainer"></video></div>
+                <div class="longform-wrap"><video data-src="assets/portfolio/yaas-h7.mp4" muted loop playsinline preload="none" aria-label="Brand film sequence"></video></div>
+              </div>
+            </div>
+            <div class="panel-foot">
+              <a class="btn-red" href="work/yaas-media.html">View full case study →</a>
+            </div>
           </div>
         </div>
       </article>
@@ -293,6 +339,9 @@
                 <div><span class="m-num">791</span><span class="m-cap">editors in atova.club, grown the same way</span></div>
               </div>
             </div>
+            <div class="panel-foot">
+              <a class="btn-red" href="https://www.instagram.com/kumarrujjawal/" target="_blank" rel="noopener">View full case study ↗</a>
+            </div>
           </div>
         </div>
       </article>
@@ -301,7 +350,8 @@
   </section>
 
   <!-- ============================ EXPERIENCE ============================ -->
-  <section class="sec" id="experience">
+  <section class="sec sec--photos" id="experience">
+    <div class="sec-main">
     <p class="sec-eyebrow"><span class="dot"></span>Experience</p>
     <h2 class="sec-heading">Where I've worked.</h2>
 
@@ -356,10 +406,19 @@
         </div>
       </div>
     </div>
+      </div>
+
+    <aside class="photo-stack">
+        <img src="assets/hero/photo-2.jpg" alt="At the CapMint booth, pointing to a launch on screen" loading="lazy">
+        <img src="assets/hero/photo-7.jpg" alt="An edit open on the timeline" loading="lazy">
+        <img src="assets/hero/photo-8.jpg" alt="Framing a shot on camera" loading="lazy">
+        <img src="assets/hero/photo-3.jpg" alt="Shooting on a gimbal in Bengaluru" loading="lazy">
+    </aside>
   </section>
 
   <!-- ============================ ABOUT ============================ -->
-  <section class="sec" id="about">
+  <section class="sec sec--photos" id="about">
+    <div class="sec-main">
     <p class="sec-eyebrow"><span class="dot"></span>About</p>
 
     <div class="about-wrap">
@@ -396,14 +455,22 @@
         <div class="about-stat"><strong>14.5K</strong><span>organic followers on my own creator page</span></div>
       </div>
     </div>
+      </div>
+
+    <aside class="photo-stack">
+        <img src="assets/hero/photo-6.jpg" alt="Portrait of Ujjawal" loading="lazy">
+        <img src="assets/hero/photo-4.jpg" alt="Ujjawal working on his laptop" loading="lazy">
+        <img src="assets/hero/photo-5.jpg" alt="Ujjawal in a red-lit studio" loading="lazy">
+        <img src="assets/hero/photo-1.jpg" alt="Ujjawal on camera: become a high level editor" loading="lazy">
+    </aside>
   </section>
 
   <!-- ============================ NOW BUILDING ============================ -->
   <section class="sec" id="building">
     <p class="sec-eyebrow"><span class="dot"></span>Now Building</p>
-    <h2 class="sec-heading">Two things I'm building on the side.</h2>
+    <h2 class="sec-heading">Three things I'm building on the side.</h2>
     <p class="sec-intro">
-      Outside of client work, I'm putting the same strategy-first thinking into two products of my own.
+      Outside of client work, I'm putting the same strategy-first thinking into three things of my own.
     </p>
 
     <div class="build-grid">
@@ -437,6 +504,13 @@
         </p>
         <div class="build-pills"><span>Community growth</span><span>Instagram</span><span>791 members</span></div>
         <a class="build-link" href="https://www.instagram.com/atova.club/" target="_blank" rel="noopener">Visit atova.club ↗</a>
+      </article>
+
+      <article class="build-card build-card--slim">
+        <p class="build-tag">03 · Studio</p>
+        <h3 class="build-name">Soltriangle</h3>
+        <p class="build-desc">Runs channels and builds tools, all in orbit around one sun.</p>
+        <a class="build-link" href="https://www.instagram.com/soltriangle/" target="_blank" rel="noopener">Visit @soltriangle ↗</a>
       </article>
     </div>
   </section>
@@ -585,7 +659,7 @@
 
       <nav class="footer-col">
         <p class="footer-col-title">Site</p>
-        <a href="#portfolio">Portfolio</a>
+        <a href="portfolio.html">Portfolio</a>
         <a href="#work">Case Studies</a>
         <a href="#experience">Experience</a>
         <a href="#about">About</a>
@@ -618,6 +692,6 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="script.js?v=20"></script>
 </body>
 </html>
