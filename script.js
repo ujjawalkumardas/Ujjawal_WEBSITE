@@ -10,35 +10,19 @@ window.addEventListener('load', syncScrollbarWidth);
 /* Fonts and late layout can introduce the scrollbar after first paint */
 new ResizeObserver(syncScrollbarWidth).observe(document.body);
 
-/* ---------------- Theme toggle ----------------
-   The head script has already set data-theme before first paint; this only
-   handles switching and persistence. A visitor who has never chosen keeps
-   following their OS setting. */
-const themeBtn = document.getElementById('themeBtn');
+/* ---------------- Colour theme ----------------
+   Two buttons in the nav switch the whole site between dark and red/yellow.
+   The head script already applied the saved choice before first paint. */
 const root = document.documentElement;
-
-function applyTheme(theme) {
-  root.setAttribute('data-theme', theme);
-  if (!themeBtn) return;
-  themeBtn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-  themeBtn.setAttribute('title', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-}
-
-/* The site now has one palette, so the toggle may be absent */
-if (themeBtn) applyTheme(root.getAttribute('data-theme') || 'dark');
-
-if (themeBtn) themeBtn.addEventListener('click', () => {
-  const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-  applyTheme(next);
-  try { localStorage.setItem('theme', next); } catch (e) { /* private mode — session only */ }
-});
-
-/* Follow the OS until the visitor picks a side themselves */
-window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
-  let chosen = null;
-  try { chosen = localStorage.getItem('theme'); } catch (err) { /* ignore */ }
-  if (!chosen) applyTheme(e.matches ? 'light' : 'dark');
-});
+const themeButtons = [...document.querySelectorAll('[data-set-theme]')];
+const showTheme = () => themeButtons.forEach(b =>
+  b.setAttribute('aria-pressed', String(b.dataset.setTheme === root.dataset.theme)));
+themeButtons.forEach(b => b.addEventListener('click', () => {
+  root.dataset.theme = b.dataset.setTheme;
+  try { localStorage.setItem('theme', b.dataset.setTheme); } catch (e) { /* private mode: this visit only */ }
+  showTheme();
+}));
+showTheme();
 
 /* ---------------- Case study accordion ---------------- */
 const caseItems = [...document.querySelectorAll('.case-item')];
@@ -113,6 +97,31 @@ filterBtns.forEach(btn => btn.addEventListener('click', () => {
   });
 }));
 
+/* ---------------- Case study carousel ----------------
+   Four cards on a ring. data-pos is the card's place relative to the front
+   one (-1 left, 0 front, 1 right, 2 behind); it advances on its own. */
+const caseCards = [...document.querySelectorAll('.case-card')];
+if (caseCards.length) {
+  let active = 0;
+  const n = caseCards.length;
+  const place = () => caseCards.forEach((card, i) => {
+    let d = (i - active + n) % n;
+    if (d > n / 2) d -= n;
+    card.dataset.pos = d;
+    card.tabIndex = d === 0 ? 0 : -1;
+  });
+  const go = step => { active = (active + step + n) % n; place(); };
+  document.querySelector('.cases-arrow.next').addEventListener('click', () => go(1));
+  document.querySelector('.cases-arrow.prev').addEventListener('click', () => go(-1));
+  /* a side card comes to the front instead of opening */
+  caseCards.forEach(card => card.addEventListener('click', e => {
+    const d = Number(card.dataset.pos);
+    if (d !== 0) { e.preventDefault(); go(d); }
+  }));
+  place();
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(() => go(1), 3500);
+}
+
 /* ---------------- Moving strips ----------------
    Duplicate the cards once so translateX(-50%) loops seamlessly, and keep the
    speed the same however many cards a strip holds. */
@@ -150,3 +159,57 @@ document.querySelectorAll('video[data-src]').forEach(v => {
     clipObserver.observe(v);
   }
 });
+
+/* ---------------- Word-by-word reveal ----------------
+   Like cred.club: copy starts dim and each word lights up as you scroll
+   through it. Every word is wrapped in a span once; on scroll, each block
+   lights a share of its words based on where it sits in the viewport. */
+const REVEAL = '.sec-heading, .sec-intro, .about-statement, .about-para, .t-role, .t-desc, ' +
+  '.panel-title, .panel-copy, .build-name, .build-desc, .build-sub, .testi-quote, .faq-a-inner p';
+
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const blocks = [...document.querySelectorAll(REVEAL)].map(el => {
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+    const texts = [];
+    while (walker.nextNode()) texts.push(walker.currentNode);
+    texts.forEach(node => {
+      const frag = document.createDocumentFragment();
+      node.textContent.split(/(\s+)/).forEach(part => {
+        if (!part) return;
+        if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+        const span = document.createElement('span');
+        span.className = 'w';
+        span.textContent = part;
+        frag.appendChild(span);
+      });
+      node.replaceWith(frag);
+    });
+    el.classList.add('reveal-words');
+    return { el, words: [...el.querySelectorAll('.w')], lit: -1 };
+  });
+
+  const update = () => {
+    const vh = innerHeight;
+    /* at the very bottom, the last blocks can't scroll any higher, so finish them */
+    const atEnd = vh + scrollY >= document.documentElement.scrollHeight - 4;
+    blocks.forEach(b => {
+      const r = b.el.getBoundingClientRect();
+      if (!r.height) return; /* inside a closed panel */
+      /* 0 when the block's top reaches 85% of the screen, 1 once its bottom passes 55% */
+      const start = vh * 0.85, end = vh * 0.55;
+      const p = atEnd && r.top < vh ? 1 : Math.min(1, Math.max(0, (start - r.top) / (start - end + r.height)));
+      const n = Math.round(p * b.words.length);
+      if (n === b.lit) return;
+      b.words.forEach((w, i) => w.classList.toggle('on', i < n));
+      b.lit = n;
+    });
+  };
+  let ticking = false;
+  addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(() => { update(); ticking = false; }); }
+  }, { passive: true });
+  addEventListener('resize', update);
+  /* opening a case panel or FAQ changes layout without scrolling */
+  document.addEventListener('click', () => setTimeout(update, 500));
+  update();
+}
