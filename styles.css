@@ -11,8 +11,8 @@
 :root{
   /* Accent and layout tokens are theme-independent */
   /* "red" is the accent slot; it is amber now */
-  --red:#3A57BD;        /* accent: buttons, dots, highlights */
-  --red-bright:#4A69D4;
+  --red:#FFFFFF;        /* accent: buttons, dots, highlights */
+  --red-bright:#E5E3DA;
   /* display face — hero headline and every section heading */
   /* Apple's faces, from the visitor's own system: SF Pro on Apple devices,
      Helvetica Neue / Arial elsewhere (same fallback chain as apple.com) */
@@ -40,13 +40,13 @@
   --umber:#0A0A09;   /* page ground: near-black */
   --cream:#FAF9F5;   /* primary text */
   --cream-2:#C2C0B6; /* body text */
-  --amber:#3A57BD;   /* accent blue */
+  --amber:#FFFFFF;   /* accent: white */
   --ink-rgb:250,249,245;          /* text colour as r,g,b for translucent tints */
-  --on-accent:var(--cream);       /* text on accent-filled buttons */
+  --on-accent:#0A0A09;            /* text on accent-filled buttons */
   --accent-text:var(--red);       /* figures, tags and links drawn in the accent */
   --card-bg:#0d0d0c;              /* carousel cards */
   --panel-bg:#111110;             /* footer cards */
-  --glow:rgba(58,87,189,.10);     /* light behind the hero */
+  --glow:rgba(255,255,255,.05);   /* light behind the hero */
   --arrow-bg:rgba(10,10,9,.8);    /* carousel arrows */
 
   --bg:var(--umber);
